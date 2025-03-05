@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Alumno</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="registro-container">
+        <img src="logo.png" alt="logo" class="logo">
+        <h2>REGISTRO ALUMNO</h2>
+        <form action="registro.php" method="POST">
+            <label>Nombre(s)</label>
+            
+            <input type="text" name="nombre" required>
+            
+            <label>Apellidos</label>
+            <input type="text" name="apellidos" required>
+            
+            <label>Num. Control</label>
+            <input type="text" name="num_control" required>
+            
+            <form action="#">
+                <label for="lang">Carrera</label>
+                <select name="lenguajes" id="lang">
+                  <option value="selecciona">Selecciona una carrera</option>
+                  <option value="Ing. Sistemas Computacionales">Ing. Sistemas Computacionales</option>
+                  <option value="Ing. Civil">Ing. Civil</option>
+                  <option value="Ing. Boquimica">Ing. Boquimica</option>
+                  <option value="Ing. Biomedica">Ing. Biomedica</option>
+                  <option value="Ing. Mecatronia">Ing. Mecatronia</option>
+                  <option value="Ing. Electronica">Ing. Electronica</option>
+                  <option value="Ing. Gestion Empresarial">Ing. Gestion Empresarial</option>
+                  <option value="Ing. Logistica">Ing. Logistica</option>
+                  <option value="Ing. Industrial">Ing. Industrial</option>
+                  <option value="Lic. Administracion de Empresas">Lic. Administracion de Empresas</option>
+                  <option value="Cotabilidad">Cotabilidad</option>
+                  
+                </select>
+          </form>
+            
+            <label>Semestre</label>
+            <input type="text" name="semestre" required>
+            
+            <label>Correo</label>
+            <input type="email" name="correo" required>
+            
+            <label>Contraseña</label>
+            <input type="password" name="contrasena" required>
+            
+            <button type="submit" class="button">Ingresar</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <img src="logo.png" alt="Logo" class="logo">
+        <h2>INICIAR SESIÓN</h2>
+        <form class="formulario" action="login.php" method="POST">
+            <div class="input-group">
+                <input type="email" name="email" placeholder="Correo Institucional" required>
+                
+            </div>
+            <div class="input-group">
+                <input type="password" name="password" placeholder="Contraseña" required>
+                
+            </div>
+            <button class="button" type="submit">Iniciar Sesión</button>
+        </form>
+        <div class="links">
+            <a href="#">¿Has olvidado tu contraseña?</a>
+            <a href="#">Regístrate</a>
+        </div>
+    </div>
+</body>
+</html>

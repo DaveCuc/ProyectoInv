@@ -3,41 +3,32 @@ body {
     text-align: center;
     margin: 50px;
 }
-.container {
+
+.container, .registro-container {
     padding: 20px;
-    border: 1px solid #ccc;
+    border: 2px solid #ccc;
     display: inline-block;
     border-radius: 10px;
+    background-color: white;
 }
+
 .logo {
     width: 80px;
     margin-top: 10px;
 }
 
-h1 {
-
-}
-
 h2 {
-    font-family: Arial, sans-serif;
     text-align: center;
     color: red;
-    /* dame un texto sin negritas*/
-    font-weight: normal;
-}
-
-h3 {
-
+    font-weight: normal; /* Sin negritas */
 }
 
 input {
-    
     padding: 8px 15px;
     margin: 8px 0;
     box-sizing: border-box;
     border: 2px solid blue;
     border-radius: 10px;
-
 }
 
 .button {
@@ -50,28 +41,25 @@ input {
     display: inline-block;
     font-size: 16px;
     border-radius: 20px;
-    transition-duration: 0.4s;
+    transition: background-color 0.4s, color 0.4s;
 }
 
 .button:hover {
     background-color: white;
     color: blue;
+    border: 2px solid blue;
 }
 
 .registro-container {
-    align: center;
     text-align: center;
-    border: 2px solid #0033a0;
-    border-radius: 10px;
-    padding: 20px;
+    border-color: #0033a0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: white;
     width: 300px;
 }
 
 label {
-    align-self: flex-start;
     color: blue;
     font-size: 14px;
     margin-bottom: 5px;
+    display: block;
 }

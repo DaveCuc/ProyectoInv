@@ -1,60 +1,63 @@
-body {
+/* Estilos globales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: Arial, sans-serif;
-    text-align: center;
-    margin: 50px;
 }
 
-.container, .registro-container {
+body {
+    text-align: center;
+    margin: 50px;
+    background-color: #f9f9f9;
+}
+
+/* Contenedores generales */
+.container, .registro-container, .login-container {
     padding: 20px;
     border: 2px solid #ccc;
     display: inline-block;
     border-radius: 10px;
     background-color: white;
-}
-
-.logo {
-    width: 80px;
-    margin-top: 10px;
-}
-
-h2 {
-    text-align: center;
-    color: red;
-    font-weight: normal; /* Sin negritas */
-}
-
-input {
-    padding: 8px 15px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: 2px solid blue;
-    border-radius: 10px;
-}
-
-.button {
-    background-color: blue;
-    border: none;
-    color: white;
-    padding: 10px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: 20px;
-    transition: background-color 0.4s, color 0.4s;
-}
-
-.button:hover {
-    background-color: white;
-    color: blue;
-    border: 2px solid blue;
-}
-
-.registro-container {
-    text-align: center;
-    border-color: #0033a0;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     width: 300px;
+}
+
+.registro-container, .login-container {
+    border-color: #0033a0;
+}
+
+.content {
+    text-align: center;
+    margin-top: 100px;
+}
+
+/* Botón de información */
+.info-button {
+    background-color: #0046b3;
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.info-button:hover {
+    background-color: #003399;
+}
+
+/* Logo */
+.logo {
+    width: 40px;
+    margin: 10px;
+}
+
+/* Tipografía y textos */
+h2 {
+    color: red;
+    font-weight: normal;
 }
 
 label {
@@ -63,3 +66,235 @@ label {
     margin-bottom: 5px;
     display: block;
 }
+
+/* Inputs */
+input {
+    padding: 8px 15px;
+    margin: 8px 0;
+    border: 2px solid blue;
+    border-radius: 10px;
+    width: 100%;
+}
+
+/* Botón */
+.button {
+    background-color: blue;
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    font-size: 16px;
+    border-radius: 20px;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: white;
+    color: blue;
+    border: 2px solid blue;
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #0046b3;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Notificaciones */
+.notification {
+    position: relative;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.notification img {
+    width: 24px;
+}
+
+.notification-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 15px;
+}
+
+/* Menú de usuario */
+.user-menu {
+    position: relative;
+    display: inline-block;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    background: white;
+    padding: 1px 20px;
+    border-radius: 20px;
+    border: 1px solid #0046b3;
+    color: black;
+}
+
+.user-info img {
+    width: 30px;
+    margin-left: 10px;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background: white;
+    border: 1px solid #0046b3;
+    border-radius: 10px;
+    width: 180px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 10px 0;
+}
+
+.dropdown a {
+    display: block;
+    padding: 8px 15px;
+    color: black;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.dropdown a:hover {
+    background-color: #f2f2f2;
+}
+
+.user-menu:hover .dropdown {
+    display: block;
+}
+
+/* Responsividad */
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .notification {
+        margin: 10px 0;
+    }
+
+    .user-menu {
+        margin-top: 10px;
+    }
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.form-container {
+    background: white;
+    padding: 20px;
+    width: 50%;
+    margin: auto;
+    border: 2px solid blue;
+    border-radius: 10px;
+    margin-top: 100px;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+}
+
+.tab {
+    background: white;
+    border: 2px solid blue;
+    padding: 10px;
+    cursor: pointer;
+    flex: 1;
+    font-weight: bold;
+}
+
+.tab.active {
+    background: blue;
+    color: white;
+}
+
+.form-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.form-section label {
+    width: 45%;
+    margin: 5px 0;
+}
+
+input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid blue;
+    border-radius: 5px;
+}
+
+.hidden {
+    display: none;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.btn {
+    background: white;
+    border: 2px solid blue;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.btn.primary {
+    background: blue;
+    color: white;
+}
+
+.profile-photo {
+    width: 100%;
+    text-align: center;
+    border: 2px solid blue;
+    padding: 10px;
+    margin-top: 10px;
+}
+

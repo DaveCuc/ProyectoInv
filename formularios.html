@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Registro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="logo-container">
+            <img src="../img/logo.png" alt="Logo" class="logo">
+            <span class="title">SGI Interfaz Alumno</span>
+        </div>
+
+        <div class="notification">
+            <span class="notification-badge">1</span>
+        </div>
+
+        <div class="user-menu">
+            <div class="user-info">
+                <span>NOMBRE ALUMNO</span>
+                <img src="user-icon.png" alt="Usuario">
+            </div>
+            <div class="dropdown">
+                <a href="#">Actualizar Información</a>
+                <a href="#">Cambiar Contraseña</a>
+                <a href="#">Cerrar Sesión</a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="form-container">
+        <div class="tabs">
+            <button class="tab active" onclick="mostrarFormulario('generales')">Generales</button>
+            <button class="tab" onclick="mostrarFormulario('familiares')">Familiares</button>
+        </div>
+
+        <form id="formGenerales" class="form-section">
+            <label>Nombre(s): <input type="text"></label>
+            <label>Apellidos: <input type="text"></label>
+            <label>Lugar de nacimiento: <input type="text"></label>
+            <label>Fecha de nacimiento: <input type="date"></label>
+            <label>Dirección: <input type="text"></label>
+            <label>Número: <input type="text"></label>
+            <label>Colonia: <input type="text"></label>
+            <label>Código postal: <input type="text"></label>
+            <label>Ciudad: <input type="text"></label>
+            <label>Entidad federativa: <input type="text"></label>
+            <label>Teléfono: <input type="tel"></label>
+            <label>Correo electrónico: <input type="email"></label>
+        </form>
+
+        <form id="formFamiliares" class="form-section hidden">
+            <label>Número de Control: <input type="text"></label>
+            <label>Sexo: <input type="text"></label>
+            <label>Estado Civil: <input type="text"></label>
+            <div class="profile-photo">
+                <p>Foto de perfil</p>
+                <input type="file">
+            </div>
+        </form>
+
+        <div class="buttons">
+            <button class="btn">Atrás</button>
+            <button class="btn primary">Guardar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

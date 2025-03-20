@@ -222,11 +222,21 @@ body {
 .form-container {
     background: white;
     padding: 20px;
-    width: 50%;
-    margin: auto;
+    width: 90%; /* Ajusta el ancho al 90% del viewport */
+    max-width: 1200px; /* Limita el ancho máximo */
+    margin: auto; /* Centra el formulario */
     border: 2px solid blue;
     border-radius: 10px;
-    margin-top: 100px;
+    margin-top: 20px;
+}
+
+
+.form-container2 {
+    background-color: blue;
+    padding: 10px;
+    margin: 20px;  
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .tabs {
@@ -251,13 +261,17 @@ body {
 .form-section {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 20px;
+    padding: 10px;
+    gap: 10px;
 }
 
 .form-section label {
-    width: 45%;
-    margin: 5px 0;
+    flex: 1 1 30%;
+    background-color: red;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
 }
 
 input {

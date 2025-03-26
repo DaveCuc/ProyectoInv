@@ -1,0 +1,253 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background-color: #f4f7f9;
+}
+
+.navbar {
+    background-color: #3f51b5;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 40px;
+    margin-right: 10px;
+}
+
+.title {
+    font-size: 1.2em;
+    font-weight: bold; /* Tipografía en negrita */
+}
+
+.notification {
+    position: relative;
+    margin-right: 20px;
+}
+
+.notification-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: red;
+    color: white;
+    font-size: 0.7em;
+    padding: 2px 5px;
+    border-radius: 50%;
+}
+
+.user-menu {
+    display: flex;
+    align-items: center;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.user-icon {
+    width: 30px;
+    height: 30px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    display: none;
+    flex-direction: column;
+    min-width: 180px;
+    padding: 10px;
+}
+
+.dropdown a {
+    color: #333;
+    text-decoration: none;
+    padding: 8px 12px;
+    font-weight: bold; /* Tipografía en negrita */
+}
+
+.dropdown a:hover {
+    background-color: #f0f0f0;
+}
+
+.form-container {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 800px;
+    border: 2px solid #007bff;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tab {
+    background-color: #e0e0e0;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 30px;
+    margin-right: 5px;
+    border: 1px solid #007bff;
+    min-width: 150px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: bold; /* Tipografía en negrita */
+}
+
+.tab:hover {
+    background-color: #d0d0d0;
+    transform: translateY(-2px);
+}
+
+.tab.active {
+    background-color: #3f51b5;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.form-section {
+    display: block;
+}
+
+.form-section.hidden {
+    display: none;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+label {
+    flex: 1;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-weight: bold; /* Tipografía en negrita */
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #007bff;
+    border-radius: 30px;
+    transition: border-color 0.3s ease, box-shadow 0.2s ease;
+    font-weight: bold; /* Tipografía en negrita */
+}
+
+input:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 5px rgba(0, 86, 179, 0.5);
+}
+
+.profile-photo {
+    flex: 1;
+    text-align: center;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.btn {
+    background-color: #e0e0e0;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    font-weight: bold; /* Tipografía en negrita */
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Cambios para alinear los campos */
+label {
+    width: 30%;
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+input {
+    width: 65%;
+    display: inline-block;
+}
+
+.form-row label:nth-child(even) {
+    margin-left: 20px;
+}
+
+.profile-photo {
+    flex: 1;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.profile-photo input[type="file"] {
+    width: auto;
+}
+
+/* Ajustes para la foto de perfil */
+.profile-photo {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.profile-photo p {
+    margin-bottom: 5px;
+    font-weight: bold; /* Tipografía en negrita */
+}
+
+.profile-photo input[type="file"] {
+    margin-top: 5px;
+}
+
+/* Estilos para el input de tipo date */
+input[type="date"] {
+    width: auto;
+}
+
+/* ... (resto del CSS) ... */
+
+select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #007bff;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: border-color 0.3s ease, box-shadow 0.2s ease;
+}
+
+select:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 5px rgba(0, 86, 179, 0.5);
+}

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGI - Interfaz Alumno</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            min-height: 100vh;
+        }
+        
+        /* Encabezado completo */
+        .header {
+            background-color: #003366;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            position: relative;
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+            border: 2px solid white;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .title-container {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .sgi-title {
+            font-size: 28px;
+            font-weight: 800;
+            line-height: 1;
+            color: #fff;
+        }
+        
+        .subtitle {
+            font-size: 18px;
+            font-weight: 500;
+            color: #fff;
+        }
+        
+        /* Menú desplegable */
+        .user-menu {
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .menu-icon {
+            font-size: 28px;
+            padding: 5px;
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            right: 0;
+            top: 100%;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            width: 220px;
+            z-index: 100;
+            display: none;
+            animation: fadeIn 0.3s ease-out;
+        }
+        
+        .dropdown-menu.show {
+            display: block;
+        }
+        
+        .menu-item {
+            padding: 12px 20px;
+            color: #333;
+            font-size: 14px;
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
+        }
+        
+        .menu-item:hover {
+            background-color: #f0f0f0;
+            border-left: 3px solid #4a90e2;
+        }
+        
+        .menu-divider {
+            height: 1px;
+            background-color: #eee;
+            margin: 5px 0;
+        }
+        
+        .logout-item {
+            color: #d9534f;
+        }
+        
+        /* Contenido principal */
+        .container {
+            max-width: 500px;
+            margin: 30px auto;
+            padding: 0 20px;
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        .welcome-section {
+            background-color: white;
+            padding: 25px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .welcome-section p {
+            margin-bottom: 10px;
+            color: #555;
+            font-size: 16px;
+        }
+        
+        /* Botones principales */
+        .main-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        .main-button {
+            padding: 15px 30px;
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(74, 144, 226, 0.3);
+            width: 100%;
+            max-width: 280px;
+            text-align: center;
+        }
+        
+        .main-button:hover {
+            background-color: #3a7bc8;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(74, 144, 226, 0.4);
+        }
+        
+        .main-button:active {
+            transform: translateY(1px);
+        }
+        
+        /* Animaciones */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .main-button {
+            animation: pulse 4s infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Encabezado con logo y menú -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="img/logo.png" alt="Logo" class="logo">
+                <div class="title-container">
+                    <span class="sgi-title">SGI</span>
+                    <span class="subtitle">Interfaz Alumno</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Menú desplegable -->
+        <div class="user-menu">
+            <div class="menu-icon">☰</div>
+            <div class="dropdown-menu" id="dropdownMenu">
+                <div class="menu-item">Nombre del Alumno</div>
+                <div class="menu-divider"></div>
+                <div class="menu-item">Actualizar Información</div>
+                <div class="menu-item">Cambiar Contraseña</div>
+                <div class="menu-divider"></div>
+                <div class="menu-item logout-item">Cerrar Sesión</div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Contenido principal -->
+    <div class="container">
+        <div class="welcome-section">
+            <p>BIENVENIDO</p>
+            <p>Num Control</p>
+            <p>Nombre Alumno</p>
+        </div>
+        
+        <!-- Botones principales (uno debajo del otro) -->
+        <div class="main-buttons">
+            <button class="main-button">Agendar Cita</button>
+            <button class="main-button">Consultar Cita</button>
+        </div>
+    </div>
+
+    <script>
+        // Menú desplegable
+        const menuIcon = document.querySelector('.menu-icon');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+        
+        menuIcon.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('show');
+        });
+        
+        // Cerrar menú al hacer clic fuera
+        document.addEventListener('click', function() {
+            dropdownMenu.classList.remove('show');
+        });
+        
+        // Prevenir que el menú se cierre al hacer clic en él
+        dropdownMenu.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+        
+        // Efecto al hacer clic en botones
+        document.querySelectorAll('.main-button, .menu-item').forEach(button => {
+            button.addEventListener('click', function() {
+                this.style.transform = 'scale(0.96)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 200);
+                
+                // Aquí iría la funcionalidad real
+                console.log('Opción seleccionada:', this.textContent.trim());
+            });
+        });
+    </script>
+</body>
+</html>

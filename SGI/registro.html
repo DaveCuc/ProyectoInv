@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Alumno</title>
+    <link rel="stylesheet" href="registrostyles.css">
+</head>
+<body>
+    <div class="register-container">
+        <img src="img/logo.png" alt="Logo" class="logo">
+        <h2>REGISTRO ALUMNO</h2>
+        <form action="interfaz-alumno.html">
+            <input type="text" placeholder="Nombre(s)" required>
+            <input type="text" placeholder="Apellidos" required>
+            <input type="text" placeholder="Num. Control" required>
+            <select name="carrera" required>
+                <option value="" disabled selected>Carrera</option>
+                <option value="bioquimica">Ing. Bioquímica</option>
+                <option value="civil">Ing. Civil</option>
+                <option value="electronica">Ing. Electrónica</option>
+                <option value="gestion">Ing. en Gestión Empresarial</option>
+                <option value="industrial">Ing. Industrial</option>
+                <option value="logistica">Ing. en Logística</option>
+                <option value="mecatronica">Ing. Mecatrónica</option>
+                <option value="sistemas">Ing. en Sistemas Computacionales</option>
+                <option value="biomedica">Ing. en Biomédica</option>
+                <option value="administracion">Lic. en Administración</option>
+                <option value="contador">Contador Público</option>
+            </select>
+            <input type="number" placeholder="Semestre" required>
+            <input type="email" placeholder="Correo" required>
+            <input type="password" placeholder="Contraseña" required>
+            <button type="submit" class="btn">Ingresar</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,413 @@
+/* cuestionario.css - Estilos específicos para la página del cuestionario */
+
+.cuestionario-main {
+    margin-top: 80px;
+    padding: 20px;
+    text-align: center;
+    width: 95%;
+    max-width: 800px;
+}
+
+.formulario {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.formulario h2 {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.checkbox-group label {
+    font-weight: normal;
+}
+
+.checkbox-group input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+.info-alumno {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.info-alumno div {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-alumno label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.info-alumno input[type="text"],
+.info-alumno input[type="number"] {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.botones-formulario {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.btn-ver-mas, .btn-siguiente {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-ver-mas:hover, .btn-siguiente:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive adjustments for cuestionario page */
+@media (max-width: 768px) {
+    .cuestionario-main {
+        margin-top: 70px;
+        padding: 15px;
+    }
+
+    .checkbox-group {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+
+    .info-alumno {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .botones-formulario {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* cuestionario.css - Estilos específicos para la página del cuestionario */
+
+.cuestionario-main {
+    margin-top: 80px;
+    padding: 20px;
+    text-align: center;
+    width: 95%;
+    max-width: 1200px;
+}
+
+.cuestionario-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.alumno-info-card {
+    flex: 0 0 300px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+}
+
+.alumno-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 15px;
+    font-size: 2em;
+    color: #aaa;
+}
+
+.alumno-info-card p {
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+.btn-ver-mas {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.btn-ver-mas:hover {
+    background-color: #0056b3;
+}
+
+.formulario-card {
+    flex: 1;
+    border: 2px solid #4d82bc; /* Blue border from your palette */
+    border-radius: 8px;
+    padding: 20px;
+    text-align: left;
+}
+
+.formulario-card h2 {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.motivo-consulta-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.motivo-btn {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.motivo-btn:hover,
+.motivo-btn.selected {
+    background-color: #c4dafa; /* Light blue from your palette */
+}
+
+.motivo-btn.selected {
+    border-color: #4d82bc; /* Blue border when selected */
+}
+
+label[for="otros-especificar"] {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#otros-especificar {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.btn-siguiente {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    float: right;
+}
+
+.btn-siguiente:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive adjustments for cuestionario page */
+@media (max-width: 768px) {
+    .cuestionario-main {
+        margin-top: 70px;
+        padding: 15px;
+    }
+
+    .cuestionario-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .alumno-info-card {
+        flex: 0 0 300px;
+        border: 2px solid #4d82bc; /* Remarcar la línea del contenedor izquierdo */
+        border-radius: 8px;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .motivo-consulta-buttons {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+
+    .btn-siguiente {
+        float: none;
+        width: 100%;
+    }
+}
+
+/* cuestionario.css - Estilos específicos para la página del cuestionario (continued) */
+
+/* Styles for Sí/No options */
+.si-no-options label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.si-no-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.si-no-btn {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.si-no-btn:hover,
+.si-no-btn.selected {
+    background-color: #c4dafa;
+    border-color: #4d82bc;
+}
+
+/* Styles for multiple choice options (like actitud and relación) */
+.opcion-seleccion label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.opcion-seleccion button {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+/* Styles for Número de Hermanos section */
+.numero-hermanos label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.hermanos-input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.hermanos-input-group label {
+    margin-right: 5px;
+    font-weight: normal;
+}
+
+.hermanos-input-group input[type="number"] {
+    width: 60px;
+    padding: 6px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#lugar-hermanos {
+    width: 150px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Styles for ¿Con quién vive actualmente? */
+label[for="vive-con"] {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#vive-con {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+/* Update general button styling if needed for consistency */
+.botones-formulario {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.botones-formulario button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.botones-formulario button.btn-atras {
+    background-color: #f0ad4e;
+    color: white;
+}
+
+.botones-formulario button.btn-atras:hover {
+    background-color: #ec971f;
+}
+
+.botones-formulario button.btn-siguiente {
+    background-color: #007bff;
+    color: white;
+}
+
+.botones-formulario button.btn-siguiente:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive adjustments for family background section */
+@media (max-width: 768px) {
+    .si-no-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .opcion-seleccion button {
+        margin-right: 5px;
+        margin-bottom: 5px;
+    }
+
+    .numero-hermanos {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hermanos-input-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

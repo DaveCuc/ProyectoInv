@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGI - Cuestionario Inicial</title>
+    <link rel="stylesheet" href="cuestionario-citas.css">
+    <link rel="stylesheet" href="interfaz-psicologo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script defer src="interfaz-psicologo.js"></script>
+    <script defer src="cuestionario-citas.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <img src="img/logo.png" alt="Logo" class="logo">
+            <span class="sgi-text">SGI</span>
+            <span class="subtext">Interfaz Psicólogo</span>
+        </div>
+        <div class="header-right">
+            <span class="nombre-usuario">NOMBRE DEL USUARIO</span>
+            <div class="profile-icon" id="profile-icon">
+                <i class="fas fa-user"></i>
+            </div>
+        </div>
+    </header>
+
+    <div id="profile-menu" class="hidden">
+        <p id="profile-name">Nombre Psicólogo</p>
+        <div class="profile-menu-item">Actualizar información</div>
+        <div class="profile-menu-item">Cambiar contraseña</div>
+        <div class="profile-menu-item" onclick="location.href='index.html'">Cerrar sesión</div>
+    </div>
+
+    <main class="cuestionario-main">
+        <h1>CUESTIONARIO INICIAL</h1>
+
+        <div class="cuestionario-container">
+            <div class="alumno-info-card">
+                <div class="alumno-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <p>Nombre Alumno: <span id="info-nombre-alumno"></span></p>
+                <p>Núm Control: <span id="info-num-control"></span></p>
+                <p>Carrera: <span id="info-carrera"></span></p>
+                <p>Semestre: <span id="info-semestre"></span></p>
+                <p>Edad: <span id="info-edad"></span></p>
+                <p>Asistencias: <span id="info-asistencias"></span></p>
+                <button class="btn btn-ver-mas">Ver más Información</button>
+            </div>
+
+            <div class="formulario-card">
+                <h2>Motivo de Consulta</h2>
+                <div class="motivo-consulta-buttons">
+                    <button type="button" class="motivo-btn" data-motivo="ansiedad">Ansiedad</button>
+                    <button type="button" class="motivo-btn" data-motivo="depresion">Depresión</button>
+                    <button type="button" class="motivo-btn" data-motivo="angustia">Angustia</button>
+                    <button type="button" class="motivo-btn" data-motivo="autoestima">Autoestima baja</button>
+                    <button type="button" class="motivo-btn" data-motivo="indiferencia">Indiferencia</button>
+                    <button type="button" class="motivo-btn" data-motivo="confusion">Confusión</button>
+                    <button type="button" class="motivo-btn" data-motivo="descontrol">Descontrol</button>
+                    <button type="button" class="motivo-btn" data-motivo="desorientacion">Desorientación</button>
+                    <button type="button" class="motivo-btn" data-motivo="incoherencia">Incoherencia</button>
+                    <button type="button" class="motivo-btn" data-motivo="sobrevaloracion">Sobrevaloración</button>
+                    <button type="button" class="motivo-btn" data-motivo="otros">Otros</button>
+                </div>
+                <label for="otros-especificar">Especifique:</label>
+                <textarea id="otros-especificar" name="otros-especificar" rows="3"></textarea>
+
+                <button class="btn btn-sesion" onclick="location.href='antecedentes.html'">siguiente</button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

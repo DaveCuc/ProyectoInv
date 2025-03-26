@@ -1,0 +1,50 @@
+/* Styles for Padecimiento Actual section */
+.padecimiento-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Reduced gap */
+    padding: 20px;
+}
+
+.padecimiento-header {
+    text-align: left;
+    margin-bottom: 10px; /* Reduced margin */
+}
+
+.padecimiento-header h2 {
+    font-size: 1.3em; /* Slightly smaller heading */
+    color: #000000; /* Use your theme color */
+    margin-bottom: 5px; /* Reduced margin */
+}
+
+.padecimiento-header p {
+    font-size: 0.9em; /* Smaller descriptive text */
+    color: #000000; /* Lighter color for description */
+    margin-bottom: 0;
+}
+
+.padecimiento-textarea-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold; /* Make the label bold */
+}
+
+.padecimiento-textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    min-height: 200px; /* Increased the minimum height of the textarea */
+    resize: vertical; /* Allow vertical resizing */
+}
+
+.botones-formulario {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px; /* Reduced top margin for buttons */
+}
+
+.botones-formulario button {
+    padding: 8px 15px; /* Slightly reduced padding for buttons */
+}

@@ -1,0 +1,200 @@
+/* psicologo-alumnos.css */
+
+.alumnos-container {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+.alumnos-list-section {
+    min-width: 400px;
+    max-width: 600px;
+    margin-top: 80px;
+}
+
+.alumno-details-section {
+    background-color: #e0f7fa;
+    border: 1px solid #b2ebf2;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 15px;
+    align-self: start;
+    min-height: 300px;
+    overflow-y: auto;
+    margin-top: 130px;
+}
+
+/* ... el resto de tu CSS se mantiene igual ... */
+
+.alumnos-header {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.alumnos-header h1 {
+    font-size: 1.8em;
+    color: #4d82bc;
+    margin-bottom: 10px;
+}
+
+.search-bar {
+    margin-bottom: 20px;
+}
+
+.search-bar label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.search-bar input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    box-sizing: border-box;
+}
+
+.alumnos-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.alumnos-table th, .alumnos-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.alumnos-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.alumno-details-section h3 {
+    font-size: 1.4em;
+    color: #4d82bc;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.alumno-details-section .avatar-container {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin: 0 auto 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5em;
+    color: white;
+}
+
+.alumno-details-section p {
+    margin-bottom: 10px;
+    font-size: 1em;
+}
+
+.ver-info-button {
+    background-color: #f06292;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 15px;
+}
+
+.ver-info-button:hover {
+    background-color: #ec407a;
+}
+
+.mostrar-todos-link-container {
+    text-align: center; /* Centramos el botón */
+    margin-bottom: 20px;
+}
+
+.mostrar-todos-link-button {
+    background-color: #42a5f5;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1em;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.mostrar-todos-link-button:hover {
+    background-color: #1e88e5;
+}
+
+.regresar-button-container {
+    text-align: left;
+}
+
+.regresar-button {
+    background-color: #42a5f5;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1em;
+}
+
+.regresar-button:hover {
+    background-color: #1e88e5;
+}
+
+/* Estilos Responsive */
+
+@media (max-width: 768px) {
+    .alumnos-container {
+        grid-template-columns: 1fr;
+    }
+
+    .alumnos-list-section,
+    .alumno-details-section {
+        width: 100%;
+        max-width: none;
+    }
+
+    .alumno-details-section {
+        order: 1;
+        margin-bottom: 20px;
+        margin-top: 0;
+    }
+
+    .alumnos-list-section {
+        order: 2;
+        margin-top: 0;
+    }
+
+    .alumnos-table {
+        overflow-x: auto;
+    }
+}
+
+/* Puedes añadir más Media Queries para tamaños de pantalla diferentes */
+@media (max-width: 576px) {
+    .alumnos-header h1 {
+        font-size: 1.5em;
+    }
+}

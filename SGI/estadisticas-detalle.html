@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGI - Estadísticas de <span id="nombre-carrera"></span></title>
+    <link rel="stylesheet" href="cita-psicologo.css">
+    <link rel="stylesheet" href="estadisticas-detalle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <img src="img/logo.png" alt="Logo" class="logo">
+            <span class="sgi-text">SGI</span>
+            <span class="subtext">Interfaz Psicólogo</span>
+        </div>
+        <div class="header-right">
+            <span class="nombre-usuario">NOMBRE DEL USUARIO</span>
+            <div class="profile-icon" id="profile-icon">
+                <i class="fas fa-user"></i>
+            </div>
+        </div>
+    </header>
+
+    <div id="profile-menu" class="hidden">
+        <p id="profile-name">Nombre Psicólogo</p>
+        <div class="profile-menu-item">Actualizar información</div>
+        <div class="profile-menu-item">Cambiar contraseña</div>
+        <div class="profile-menu-item" onclick="location.href='index.html'">Cerrar sesión</div>
+    </div>
+
+    <main class="detalle-container">
+        <h1>Estadísticas</h1>
+        <section class="contenido-principal">
+            <div class="info-carrera-container">
+                <div class="logo-placeholder"><i class="fas fa-graduation-cap"></i></div>
+                <p>Carrera</p>
+                <p id="nombre-carrera-detalle"></p>
+                <p>Num Alumnos</p>
+                <p id="num-alumnos"></p>
+                <button class="regresar-button" onclick="window.location.href='estadisticas-carreras.html'">Regresar</button>            </div>
+
+            <div class="grafico-container">
+                <div class="grafico-estadisticas">
+                    <h2>Gráfico de Estadísticas</h2>
+                    <img src="img/grafico-placeholder.png" alt="Gráfico de Estadísticas">
+                </div>
+                <div class="opciones-grafico">
+                    <button class="boton-grafico">Por Semestre</button>
+                    <button class="boton-grafico">Total</button>
+                    <button class="boton-grafico">Descargar</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="estadisticas-detalle.js"></script>
+</body>
+</html>

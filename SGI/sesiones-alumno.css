@@ -1,0 +1,229 @@
+/* sesiones-alumno.css */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #3498db;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 40px;
+    margin-right: 15px;
+}
+
+.sgi-text {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.subtext {
+    font-size: 0.9em;
+    margin-left: 5px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.nombre-usuario {
+    margin-right: 15px;
+}
+
+.profile-icon {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+#profile-menu {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#profile-menu.hidden {
+    display: none;
+}
+
+#profile-menu p {
+    margin: 0 0 5px;
+    font-weight: bold;
+}
+
+.profile-menu-item {
+    padding: 8px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.profile-menu-item:hover {
+    background-color: #eee;
+}
+
+main.sesiones-container {
+    padding: 20px;
+    max-width: 1600px; /* Mantener el ancho máximo si lo prefieres */
+    /* max-width: none; /* O eliminar el ancho máximo */
+    margin: 80px auto 20px auto;
+    /* background-color: white;  Eliminar esta línea */
+    border-radius: 8px;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); Eliminar esta línea */
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.alumno-details-section {
+    background-color: #e0f7fa;
+    border: 1px solid #b2ebf2;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 15px;
+    align-self: start;
+    text-align: center;
+    min-height: 400px;
+}
+
+.alumno-details-section .avatar-container {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin: 0 auto 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5em;
+    color: white;
+}
+
+.alumno-details-section h3 {
+    font-size: 1.4em;
+    color: #4d82bc;
+    margin-bottom: 15px;
+}
+
+.alumno-details-section p {
+    margin-bottom: 10px;
+    font-size: 1em;
+}
+
+.ver-info-button {
+    background-color: #f06292;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 15px;
+}
+
+.ver-info-button:hover {
+    background-color: #ec407a;
+}
+
+.sesiones-info-section {
+    padding: 20px;
+}
+
+.sesiones-info-section h2 {
+    color: #3498db;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.sesiones-info-section table.sesiones-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    border: 2px solid #3498db; /* Borde azul */
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.sesiones-info-section table.sesiones-table th,
+.sesiones-info-section table.sesiones-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.sesiones-info-section table.sesiones-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    color: #555;
+}
+
+.sesiones-info-section .resumen-alumno {
+    padding: 15px 0;
+    margin-bottom: 20px;
+    border-top: 1px solid #eee;
+}
+
+.sesiones-info-section .resumen-alumno p {
+    margin-bottom: 8px;
+}
+
+.regresar-button-container {
+    text-align: right;
+}
+
+.regresar-button {
+    background-color: #42a5f5;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1em;
+}
+
+.regresar-button:hover {
+    background-color: #1e88e5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    main.sesiones-container {
+        grid-template-columns: 1fr;
+        margin-top: 20px;
+    }
+
+    .alumno-details-section {
+        margin-bottom: 20px;
+    }
+}

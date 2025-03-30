@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGI - Estadísticas por Carrera</title>
+    <link rel="stylesheet" href="cita-psicologo.css">
+    <link rel="stylesheet" href="estadisticas-carreras.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <img src="img/logo.png" alt="Logo" class="logo">
+            <span class="sgi-text">SGI</span>
+            <span class="subtext">Interfaz Psicólogo</span>
+        </div>
+        <div class="header-right">
+            <span class="nombre-usuario">NOMBRE DEL USUARIO</span>
+            <div class="profile-icon" id="profile-icon">
+                <i class="fas fa-user"></i>
+            </div>
+        </div>
+    </header>
+
+    <div id="profile-menu" class="hidden">
+        <p id="profile-name">Nombre Psicólogo</p>
+        <div class="profile-menu-item">Actualizar información</div>
+        <div class="profile-menu-item">Cambiar contraseña</div>
+        <div class="profile-menu-item" onclick="location.href='index.html'">Cerrar sesión</div>
+    </div>
+
+    <main class="estadisticas-container">
+        <h1>Estadísticas</h1>
+        <div class="carreras-grid">
+            <div class="carrera-item" onclick="mostrarEstadisticas('Bioquímica')">
+                <div class="logo-placeholder"><i class="fas fa-university"></i></div>
+                <div class="carrera-nombre">Ing. Bioquímica</div>
+            </div>
+            <div class="carrera-item" onclick="mostrarEstadisticas('Civil')">
+                <div class="logo-placeholder"><i class="fas fa-university"></i></div>
+                <div class="carrera-nombre">Ing. Civil</div>
+            </div>
+            <div class="carrera-item" onclick="mostrarEstadisticas('Electrónica')">
+                <div class="logo-placeholder"><i class="fas fa-university"></i></div>
+                <div class="carrera-nombre">Ing. Electrónica</div>
+            </div>
+            <div class="carrera-item" onclick="mostrarEstadisticas('Gestión Empresarial')">
+                <div class="logo-placeholder"><i class="fas fa-university"></i></div>
+                <div class="carrera-nombre">Ing. en Gestión Empresarial</div>
+            </div>
+            <div class="carrera-item" onclick="mostrarEstadisticas('Industrial')">
+                <div class="logo-placeholder"><i class="fas fa-university"></i></div>
+                <div class="carrera-nombre">Ing. Industrial</div>
+            </div>
+            <div class="carrera-item" onclick="mostrarEstadisticas('Logística')">
+                <div class="logo-placeholder"><i class="fas fa-university"></i></div>
+                <div class="carrera-nombre">Ing. en Logística</div>
+            </div>
+            <div class="carrera-item" onclick="mostrarEstadisticas('Mecatrónica')">
+                <div class="logo-placeholder"><i class="fas fa-university"></i></div>
+                <div class="carrera-nombre">Ing. Mecatrónica</div>
+            </div>
+            <div class="carrera-item" onclick="mostrarEstadisticas('Sistemas Computacionales')">
+                <div class="logo-placeholder"><i class="fas fa-university"></i></div>
+                <div class="carrera-nombre">Ing. en Sistemas Computacionales</div>
+            </div>
+            <div class="carrera-item" onclick="mostrarEstadisticas('Biomédica')">
+                <div class="logo-placeholder"><i class="fas fa-university"></i></div>
+                <div class="carrera-nombre">Ing. en Biomédica</div>
+            </div>
+            <div class="carrera-item" onclick="mostrarEstadisticas('Administración de Empresas')">
+                <div class="logo-placeholder"><i class="fas fa-university"></i></div>
+                <div class="carrera-nombre">Lic. en Administración de Empresas</div>
+            </div>
+            <div class="carrera-item" onclick="mostrarEstadisticas('Contador Público')">
+                <div class="logo-placeholder"><i class="fas fa-university"></i></div>
+                <div class="carrera-nombre">Contador Público</div>
+            </div>
+            <div class="carrera-item porcentaje-total" onclick="mostrarEstadisticas('Porcentaje Total')">
+                <div class="logo-placeholder"><i class="fas fa-chart-bar"></i></div>
+                <div class="carrera-nombre">Porcentaje Total</div>
+            </div>
+            <div class="carrera-item asistencias-total" onclick="mostrarEstadisticas('Asistencias')">
+                <div class="logo-placeholder"><i class="fas fa-check-circle"></i></div>
+                <div class="carrera-nombre">Asistencias</div>
+            </div>
+        </div>
+        <div class="regresar-button-container">
+            <button class="regresar-button" onclick="window.location.href='Interfaz-Psicologo.html'">Regresar</button>            </div>
+        </div>
+    </main>
+
+    <script src="estadisticas-carreras.js"></script>
+</body>
+</html>

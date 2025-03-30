@@ -1,0 +1,231 @@
+/* estadisticas-detalle.css */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #3498db;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 40px;
+    margin-right: 15px;
+}
+
+.sgi-text {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.subtext {
+    font-size: 0.9em;
+    margin-left: 5px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.nombre-usuario {
+    margin-right: 15px;
+}
+
+.profile-icon {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+#profile-menu {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#profile-menu.hidden {
+    display: none;
+}
+
+#profile-menu p {
+    margin: 0 0 5px;
+    font-weight: bold;
+}
+
+.profile-menu-item {
+    padding: 8px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.profile-menu-item:hover {
+    background-color: #eee;
+}
+
+main.detalle-container {
+    padding-top: 30px; /* Aumentamos el padding superior */
+    padding-bottom: 30px; /* Aumentamos el padding inferior */
+    max-width: 1300px; /* Mantenemos el ancho anterior */
+    margin: 80px auto 30px auto; /* Ajustamos el margen inferior */
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    font-size: 1.1em;
+    min-height: auto; /* Permitimos que la altura se ajuste al contenido */
+}
+
+main.detalle-container h1 {
+    color: #3498db;
+    margin-bottom: 20px; /* Aumentamos el margen inferior del título */
+    font-size: 2.5em;
+}
+
+.contenido-principal {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+    padding-top: 30px; /* Aumentamos el padding superior */
+    padding-bottom: 30px; /* Aumentamos el padding inferior */
+    padding-left: 35px;
+    padding-right: 35px;
+    align-items: center;
+}
+
+.info-carrera-container {
+    text-align: center;
+    padding-top: 30px; /* Aumentamos el padding superior */
+    padding-bottom: 30px; /* Aumentamos el padding inferior */
+    border-right: 1px solid #eee;
+}
+
+.info-carrera-container .logo-placeholder {
+    width: 100px; /* Aumentamos un poco el tamaño del logo */
+    height: 100px;
+    border-radius: 50%;
+    background-color: #cce5ff;
+    margin: 0 auto 15px; /* Aumentamos el margen inferior */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em; /* Aumentamos un poco el tamaño del icono */
+    color: #3498db;
+}
+
+.info-carrera-container p {
+    margin-bottom: 12px; /* Aumentamos el margen inferior */
+    font-weight: bold;
+    font-size: 1.2em; /* Aumentamos un poco el tamaño de la fuente */
+}
+
+.grafico-container {
+    text-align: center;
+    padding-top: 30px; /* Aumentamos el padding superior */
+    padding-bottom: 30px; /* Aumentamos el padding inferior */
+}
+
+.grafico-estadisticas h2 {
+    color: #3498db;
+    margin-bottom: 15px; /* Aumentamos el margen inferior */
+    font-size: 1.6em;
+}
+
+.grafico-estadisticas img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.opciones-grafico {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding-top: 15px; /* Aumentamos el padding superior */
+    padding-bottom: 15px; /* Aumentamos el padding inferior */
+    margin-top: 25px; /* Aumentamos el margen superior */
+}
+
+.boton-grafico {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 20px; /* Mantenemos el padding de los botones */
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1.1em; /* Mantenemos el tamaño de la fuente de los botones */
+}
+
+.boton-grafico:hover {
+    background-color: #45a049;
+}
+
+.regresar-button-container {
+    text-align: center;
+    margin-top: 30px; /* Aumentamos el margen superior */
+}
+
+.regresar-button {
+    background-color: #42a5f5;
+    color: white;
+    border: none;
+    padding: 12px 25px; /* Mantenemos el padding del botón Regresar */
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1.1em; /* Mantenemos el tamaño de la fuente del botón Regresar */
+}
+
+.regresar-button:hover {
+    background-color: #1e88e5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    main.detalle-container {
+        padding: 20px;
+        margin: 80px auto 20px auto;
+    }
+    .contenido-principal {
+        grid-template-columns: 1fr;
+        padding: 20px;
+        gap: 20px;
+    }
+    .info-carrera-container {
+        border-right: none;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 20px;
+    }
+    .opciones-grafico {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+}

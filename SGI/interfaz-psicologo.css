@@ -1,27 +1,3 @@
-/* interfaz-psicologo.css */
-
-/* Estilos generales */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
-body {
-    background: linear-gradient(45deg, #c4dafa, #f3c2ea);
-    animation: backgroundMove 10s infinite alternate;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start; /* Cambiado a flex-start para alinear desde arriba */
-    min-height: 100vh; /* Asegura que el body ocupe toda la altura de la pantalla */
-}
-
-@keyframes backgroundMove {
-    0% { background-position: left; }
-    100% { background-position: right; }
-}
 
 /* Estilos del header */
 header {

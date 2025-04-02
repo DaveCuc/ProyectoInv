@@ -4,40 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SGI - Interfaz Alumno</title>
+    <link rel="stylesheet" href="styles-fondo.css">
+
     <link rel="stylesheet" href="interfaz-alumno.css">
 </head>
 <body>
-    <div class="container">
-        <div class="sidebar">
-            <div class="logo-area">
-                <img src="img/logo.png" alt="Logo" class="logo">
-                <span class="logo-text">SGI <br> Interfaz Alumno</span>
+    <header>
+        <div class="header-left">
+            <img src="img/logo.png" alt="Logo" class="logo">
+            <span class="sgi-text">SGI</span>
+            <span class="subtext">Interfaz Psicólogo</span>
+        </div>
+        <div class="header-right">
+            <div class="notification" id="notification-icon">
+                <i class="fas fa-bell"></i><span class="notification-badge" id="notification-count">1</span>
+            </div>
+            <div class="profile-icon" id="profile-icon">
+                <i class="fas fa-user"></i>
             </div>
         </div>
-        <div class="main-content">
-            <div class="top-bar">
-                <div class="notification">
-                    <span class="bell-icon"></span>
-                    <span class="notification-count">1</span>
-                </div>
-                <div class="user-dropdown">
-                    <span class="username">NOMBRE ALUMNO</span>
-                    <span class="user-icon"></span>
-                    <div class="dropdown-content">
-                        <a href="#">Actualizar Información</a>
-                        <a href="#">Cambiar Contraseña</a>
-                        <a href="#">Cerrar Sesión</a>
-                    </div>
-                </div>
-            </div>
-            <div class="welcome-section">
-                <h1>BIENVENIDO</h1>
-                <p>Num Control</p>
-                <p>Nombre Alumno</p>
-                <button class="info-button" id="infoPersonalBtn">Información Personal</button>
-            </div>
-        </div>
+    </header>
+
+    <div id="notification-panel" class="hidden">
+        <p>No tienes nuevas notificaciones</p>
     </div>
+
+    <div id="profile-menu" class="hidden">
+        <p id="profile-name">Nombre Psicólogo</p>
+        <div class="profile-menu-item">Actualizar información</div>
+        <div class="profile-menu-item">Cambiar contraseña</div>
+        <div class="profile-menu-item" onclick="location.href='index.html'">Cerrar sesión</div>
+    </div>
+
+    <main>
+        <h1>BIENVENIDO</h1>
+        <p>Nombre Psicólogo</p>
+        <button class="btn btn-sesion" onclick="location.href='cita-Psicologo.html'">citas</button>
+        <button class="btn" id="btn-alumnos">Alumnos</button>
+        <button class="btn" id="btn-estadisticas">Estadísticas</button>
+    </main>
     <script src="interfaz-alumno.js"></script>
 </body>
 </html>

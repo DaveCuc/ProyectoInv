@@ -51,6 +51,75 @@ body::before {
     pointer-events: none; /* Para que no bloquee clics */
 }
 
+/* titulo de bienvenida y psicologo*/
+
+.bienvenida-contenedor {
+    text-align: center;
+    margin-top: 100px;
+    animation: fadeSlideIn 2s ease;
+}
+
+.titulo-bienvenida {
+    font-size: 4em;
+    font-weight: bold;
+    background: linear-gradient(to right, #4d82bc, #7fb3ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+.subtexto-bienvenida {
+    font-size: 1.5em;
+    color: #555;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+@keyframes fadeSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ESTILOS PARA LOS BOTONES CITAS, ALUMNOS Y ESTADISTICAS*/
+
+.botones-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px; /* Menos espacio entre botones */
+    margin-top: 20px;
+}
+
+.btn-sesion {
+    background-color: #7fb3ff; /* Color base */
+    border: none;
+    border-radius: 30px;
+    padding: 10px 25px;
+    font-size: 1.05em;
+    font-weight: bold;
+    color: #4d82bc;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 220px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-sesion:hover {
+    background-color: #4d82bc !important; /* Azul sólido en hover */
+    color: white;
+    transform: scale(1.02);
+}
+
+
+
 
 /* Estilos responsivos */
 @media (max-width: 768px) {

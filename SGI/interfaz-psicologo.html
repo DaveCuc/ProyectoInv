@@ -11,21 +11,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <header>
-        <div class="header-left">
-            <img src="img/logo.png" alt="Logo" class="logo">
-            <span class="sgi-text">SGI</span>
-            <span class="subtext">Interfaz Psicólogo</span>
-        </div>
-        <div class="header-right">
-            <div class="notification" id="notification-icon">
-                <i class="fas fa-bell"></i><span class="notification-badge" id="notification-count">1</span>
-            </div>
-            <div class="profile-icon" id="profile-icon">
-                <i class="fas fa-user"></i>
-            </div>
-        </div>
-    </header>
+    <!-- Contenedor del header -->
+<div id="header-container"></div>
+
+<!-- Llamas al JS después del contenedor -->
+<script src="header.js"></script>
+
 
     <div id="notification-panel" class="hidden">
         <p>No tienes nuevas notificaciones</p>

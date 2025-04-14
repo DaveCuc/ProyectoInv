@@ -10,7 +10,12 @@
     <script defer src="interfaz-psicologo.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+ 
+
 <body>
+
+     <div id="particles-container"></div>
+
           <!-- Contenedor del header -->
         <div id="header-container"></div>
 
@@ -35,6 +40,54 @@
         <button class="btn btn-sesion" onclick="location.href='cita-Psicologo.html'">citas</button>
         <button class="btn" id="btn-alumnos" onclick="location.href='psicologo-alumnos.html'">Alumnos</button>
         <button class="btn" id="btn-estadisticas" onclick="location.href='estadisticas-carreras.html'">Estadísticas</button>
-    </main> 
+    </main>
+    
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+<script>
+    tsParticles.load("particles-container", {
+        fullScreen: {
+            enable: true,
+            zIndex: -1 // Para que esté detrás de todo
+        },
+        particles: {
+            number: {
+                value: 40,
+                density: {
+                    enable: true,
+                    area: 800
+                }
+            },
+            color: {
+                value: "#4d82bc"
+            },
+            shape: {
+                type: "circle"
+            },
+            opacity: {
+                value: 0.5
+            },
+            size: {
+                value: 4
+            },
+            move: {
+                enable: true,
+                speed: 1,
+                direction: "none",
+                outModes: "out"
+            },
+            links: {
+                enable: true,
+                distance: 150,
+                color: "#4d82bc",
+                opacity: 0.4,
+                width: 1
+            }
+        },
+        background: {
+            color: "#ffffff"
+        }
+    });
+</script>
+
 </body>
 </html>

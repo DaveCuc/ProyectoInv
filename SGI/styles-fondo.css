@@ -61,37 +61,86 @@ header {
     right: -5px;
 }
 
-/* Dropdown Menu */
 .dropdown-menu {
-    position: absolute;
-    top: 60px;
-    right: 20px;
+    position: fixed; /* Fijo en pantalla */
+    top: 70px;
     background-color: white;
     border: 1px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 200px;
-    padding: 10px;
-    z-index: 99;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    padding: 15px;
+    z-index: 9999; /* Por encima de todo */
+}
+
+#profileMenu {
+    right: 20px;
+}
+
+#notificationMenu {
+    right: 80px;
 }
 
 .menu-item {
-    padding: 10px;
+    padding: 12px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     cursor: pointer;
     color: #333;
+    font-size: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.menu-item:last-child {
+    border-bottom: none;
 }
 
 .menu-item:hover {
-    background-color: #f0f0f0;
+    background-color: #f5f5f5;
+    border-radius: 8px;
 }
+
+#notificationMenu {
+    right: 80px;
+    width: 320px;
+    max-height: 400px; /* Aumentamos altura para que quepan varias */
+    overflow-y: auto;
+}
+
+#notificaciones {
+    display: flex;
+    flex-direction: column; /* Vertical */
+    gap: 10px;
+    padding: 10px;
+}
+
+#notificaciones::-webkit-scrollbar {
+    width: 6px;
+}
+
+#notificaciones::-webkit-scrollbar-thumb {
+    background-color: #bbb;
+    border-radius: 10px;
+}
+
+#notificaciones div {
+    padding: 12px;
+    background: #f8f8f8;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    color: #444;
+    transition: all 0.3s ease;
+}
+#notificaciones div:hover {
+    background-color: #eaeaea;
+}
+
 
 .hidden {
-    display: none;
+    display: none !important;
 }
-
 
 
 

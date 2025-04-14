@@ -142,6 +142,13 @@ header {
     display: none !important;
 }
 
+.profile-icon, .notification {
+    transition: color 0.3s ease;
+}
+
+.profile-icon:hover, .notification:hover {
+    color: #002fff; /* o el color que prefieras */
+}
 
 
 /*a partir de aquiii esto no se toca si algo sale mal xd*/

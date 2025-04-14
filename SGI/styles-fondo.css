@@ -1,3 +1,101 @@
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: #4d82bc;
+    padding: 15px 20px;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    border-radius: 10px 10px 0 0;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.sgi-text {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.subtext {
+    font-size: 1em;
+    margin-left: 5px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.notification, .profile-icon {
+    cursor: pointer;
+    font-size: 1.5em;
+    position: relative;
+    margin-left: 15px;
+    z-index: 10;
+}
+
+.notification-badge {
+    background: red;
+    color: white;
+    font-size: 0.7em;
+    border-radius: 50%;
+    padding: 5px 8px;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 200px;
+    padding: 10px;
+    z-index: 99;
+}
+
+.menu-item {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    color: #333;
+}
+
+.menu-item:hover {
+    background-color: #f0f0f0;
+}
+
+.hidden {
+    display: none;
+}
+
+
+
+
+/*a partir de aquiii esto no se toca si algo sale mal xd*/
 /* estilos y cores */
 * {
     margin: 0;

@@ -54,26 +54,24 @@
     </style>
 </head>
 <body>
-    <header>
-        <div class="header-left">
-            <img src="img/logo.png" alt="Logo" class="logo">
-            <span class="sgi-text">SGI</span>
-            <span class="subtext">Interfaz Psicólogo</span>
-        </div>
-        <div class="header-right">
-            <span class="nombre-usuario">NOMBRE DEL USUARIO</span>
-            <div class="profile-icon" id="profile-icon">
-                <i class="fas fa-user"></i>
-            </div>
-        </div>
-    </header>
+       <!-- Contenedor del header -->
+       <div id="header-container"></div>
 
-    <div id="profile-menu" class="hidden">
-        <p id="profile-name">Nombre Psicólogo</p>
-        <div class="profile-menu-item">Actualizar información</div>
-        <div class="profile-menu-item">Cambiar contraseña</div>
-        <div class="profile-menu-item" onclick="location.href='index.html'">Cerrar sesión</div>
-    </div>
+       <!-- Llamas al JS después del contenedor -->
+       <script src="header.js"></script>
+
+
+   <div id="notification-panel" class="hidden">
+       <p>No tienes nuevas notificaciones</p>
+   </div>
+
+   <div id="profile-menu" class="hidden">
+       <p id="profile-name">Nombre Psicólogo</p>
+       <div class="profile-menu-item">Actualizar información</div>
+       <div class="profile-menu-item">Cambiar contraseña</div>
+       <div class="profile-menu-item" onclick="location.href='index.html'">Cerrar sesión</div>
+   </div>
+
 
     <main class="cuestionario-main">
         <div class="cuestionario-container">

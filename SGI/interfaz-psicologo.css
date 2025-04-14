@@ -1,72 +1,10 @@
 
-/* Estilos para los menús desplegables */
-.hidden {
-    display: none;
-}
-
-#notification-panel, #profile-menu {
-    position: absolute;
-    right: 20px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    padding: 15px; /* Aumentado el padding */
-    display: none;
-    z-index: 9; /* Asegura que los menús estén por debajo de los iconos */
-    top: calc(100% + 10px); /* Posiciona el menú debajo del header */
-}
-
-#profile-menu {
-    width: 200px; /* Ancho fijo para el menú de perfil */
-}
-
-#profile-menu::before {
-    content: '';
-    position: absolute;
-    top: -10px; /* Ajusta la posición del triángulo */
-    right: 15px; /* Ajusta la posición del triángulo */
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-bottom: 10px solid white;
-}
-
-#notification-panel::before {
-    content: '';
-    position: absolute;
-    top: -10px; /* Ajusta la posición del triángulo */
-    right: 15px; /* Ajusta la posición del triángulo */
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-bottom: 10px solid white;
-}
-
-#profile-menu p {
-    margin-top: 0;
-    font-weight: bold;
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-.profile-menu-item {
-    padding: 12px 15px; /* Aumentado el padding */
-    cursor: pointer;
-    border-bottom: 1px solid #eee;
-}
-
-.profile-menu-item:last-child {
-    border-bottom: none;
-}
-
-.profile-menu-item:hover {
-    background: #eee;
-}
-
 /* Estilos del contenido principal */
 main {
     text-align: center;
     margin-top: 80px; /* Ajusta el margen para evitar superposición con el header */
     padding: 20px;
-}
+} 
 
 h1 {
     font-size: 2em; /* Ajustado el tamaño del título */

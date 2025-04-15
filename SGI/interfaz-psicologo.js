@@ -57,4 +57,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Ejemplo para actualizar el nombre del psicólogo (puedes obtenerlo dinámicamente)
     profileNameElement.textContent = 'Nombre del Psicólogo'; // Reemplaza con el nombre real
+
+
+
+      
 });

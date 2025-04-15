@@ -1,125 +1,96 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SGI - Citas</title>
-    <link rel="stylesheet" href="styles-fondo.css">
-    <link rel="stylesheet" href="cita-psicologo.css">
- 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script defer src="cita-psicologo.js"></script>
-    
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SGI - Citas</title>
+  <link rel="stylesheet" href="styles-fondo.css" />
+  <link rel="stylesheet" href="cita-psicologo.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <script defer src="cita-psicologo.js"></script>
 </head>
 <body>
-       <!-- Contenedor del header -->
-       <div id="header-container"></div>
+  <!-- Contenedor del header -->
+  <div id="header-container"></div>
+  <script src="header.js"></script>
 
-       <!-- Llamas al JS después del contenedor -->
-       <script src="header.js"></script>
+  <!-- Paneles flotantes -->
+  <div id="notification-panel" class="hidden">
+    <p>No tienes nuevas notificaciones</p>
+  </div>
 
+  <div id="profile-menu" class="hidden">
+    <p id="profile-name">Nombre Psicólogo</p>
+    <div class="profile-menu-item">Actualizar información</div>
+    <div class="profile-menu-item">Cambiar contraseña</div>
+    <div class="profile-menu-item" onclick="location.href='index.html'">Cerrar sesión</div>
+  </div>
 
-   <div id="notification-panel" class="hidden">
-       <p>No tienes nuevas notificaciones</p>
-   </div>
+  <!-- Contenido principal -->
+  <main class="citas-main">
+    <h1>Seleccionar cita de alumno</h1>
 
-   <div id="profile-menu" class="hidden">
-       <p id="profile-name">Nombre Psicólogo</p>
-       <div class="profile-menu-item">Actualizar información</div>
-       <div class="profile-menu-item">Cambiar contraseña</div>
-       <div class="profile-menu-item" onclick="location.href='index.html'">Cerrar sesión</div>
-   </div>
-
-
-    <main class="citas-main">
-        <h1>Seleccionar cita de alumno</h1>
-
-        <div class="citas-container">
-            <div class="cita-list-table">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Fecha y Hora</th>
-                            <th>Nombre Alumno</th>
-                            <th>Asistencia</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>21 Feb<br>12:00 PM</td>
-                            <td>ALUMNO 1234</td>
-                            <td class="asistencia">
-                                <div class="asistencia-options">
-                                    <i class="fas fa-times faltante"></i>
-                                    <i class="fas fa-check presente"></i>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>21 Feb<br>12:00 PM</td>
-                            <td>ALUMNO 5678</td>
-                            <td class="asistencia">
-                                <div class="asistencia-options">
-                                    <i class="fas fa-times faltante"></i>
-                                    <i class="fas fa-check presente"></i>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>21 Feb<br>12:00 PM</td>
-                            <td>ALUMNO 9012</td>
-                            <td class="asistencia">
-                                <div class="asistencia-options">
-                                    <i class="fas fa-times faltante"></i>
-                                    <i class="fas fa-check presente"></i>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>22 Feb<br>01:00 PM</td>
-                            <td>ALUMNO 1357</td>
-                            <td class="asistencia">
-                                <div class="asistencia-options">
-                                    <i class="fas fa-times faltante"></i>
-                                    <i class="fas fa-check presente"></i>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>22 Feb<br>02:00 PM</td>
-                            <td>ALUMNO 2468</td>
-                            <td class="asistencia">
-                                <div class="asistencia-options">
-                                    <i class="fas fa-times faltante"></i>
-                                    <i class="fas fa-check presente"></i>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>22 Feb<br>03:00 PM</td>
-                            <td>ALUMNO 3579</td>
-                            <td class="asistencia">
-                                <div class="asistencia-options">
-                                    <i class="fas fa-times faltante"></i>
-                                    <i class="fas fa-check presente"></i>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <button class="btn btn-atras" onclick="location.href='interfaz-psicologo.html'">Atrás</button>
-            </div>
-
-            <div class="alumno-details-card">
-                <div class="alumno-avatar">
-                    <i class="fas fa-user"></i>
+    <div class="citas-container">
+      <!-- Tabla de citas -->
+      <div class="cita-list-table">
+        <table class="tabla-citas">
+          <thead>
+            <tr>
+              <th>Fecha y Hora</th>
+              <th>Nombre Alumno</th>
+              <th>Asistencia</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-nombre="ALUMNO 1234" data-control="A1234" data-asistencias="5" data-estatus="Activo">
+              <td>21 Feb<br>12:00 PM</td>
+              <td>ALUMNO 1234</td>
+              <td>
+                <div class="asistencia-options">
+                  <i class="fas fa-times faltante"></i>
+                  <i class="fas fa-check presente"></i>
                 </div>
-                <h2 id="alumno-nombre">Nombre Alumno</h2>
-                <p>Num Control: <span id="alumno-control">Num Control</span></p>
-                <p>asistencias: <span id="alumno-asistencias">#</span></p>
-                <p>Estatus: <span id="alumno-estatus"></span></p>
-                <button class="btn btn-sesion" onclick="location.href='cuestionario-citas.html'">Empezar Sesión</button>            </div>
+              </td>
+            </tr>
+            <tr data-nombre="ALUMNO 5678" data-control="A5678" data-asistencias="3" data-estatus="Activo">
+              <td>22 Feb<br>01:00 PM</td>
+              <td>ALUMNO 5678</td>
+              <td>
+                <div class="asistencia-options">
+                  <i class="fas fa-times faltante"></i>
+                  <i class="fas fa-check presente"></i>
+                </div>
+              </td>
+            </tr>
+            <tr data-nombre="ALUMNO 9101" data-control="A9101" data-asistencias="2" data-estatus="Activo">
+              <td>23 Feb<br>09:00 AM</td>
+              <td>ALUMNO 9101</td>
+              <td>
+                <div class="asistencia-options">
+                  <i class="fas fa-times faltante"></i>
+                  <i class="fas fa-check presente"></i>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <button class="btn btn-atras" onclick="location.href='interfaz-psicologo.html'">Atrás</button>
+      </div>
+
+      <!-- Tarjeta lateral del alumno -->
+      <div class="alumno-details-card">
+        <div class="alumno-avatar">
+          <i class="fas fa-user"></i>
         </div>
-    </main>
+        <h2 id="alumno-nombre">Nombre Alumno</h2>
+        <p>Num Control: <span id="alumno-control">-</span></p>
+        <p>Asistencias: <span id="alumno-asistencias">-</span></p>
+        <p>Estatus: <span id="alumno-estatus">-</span></p>
+        <button class="btn btn-sesion" onclick="location.href='cuestionario-citas.html'">Empezar Sesión</button>
+      </div>
+    </div>
+
+    <div class="mensaje" id="mensaje"></div>
+  </main>
 </body>
 </html>

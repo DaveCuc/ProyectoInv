@@ -17,7 +17,7 @@
 }
 
 .alumno-details-section {
-    background-color: #e0f7fa;
+    background-color: #d7eaff;
     border: 1px solid #b2ebf2;
     border-radius: 15px;
     padding: 20px;
@@ -25,7 +25,7 @@
     align-self: start;
     min-height: 300px;
     overflow-y: auto;
-    margin-top: 130px;
+    margin-top: 155px;
 }
 
 /* ... el resto de tu CSS se mantiene igual ... */
@@ -75,13 +75,13 @@
 }
 
 .alumnos-table th {
-    background-color: #f2f2f2;
+    background-color: #4d82bc;
     font-weight: bold;
 }
 
 .alumno-details-section h3 {
     font-size: 1.4em;
-    color: #4d82bc;
+    color: #000408;
     margin-bottom: 15px;
     text-align: center;
 }
@@ -116,10 +116,12 @@
     width: 100%;
     box-sizing: border-box;
     margin-top: 15px;
+    font-weight: bold;
+
 }
 
 .ver-info-button:hover {
-    background-color: #ec407a;
+    background-color: #ef007e;
 }
 
 .mostrar-todos-link-container {
@@ -128,7 +130,7 @@
 }
 
 .mostrar-todos-link-button {
-    background-color: #42a5f5;
+    background-color: #4d82bc;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -138,10 +140,12 @@
     font-size: 1em;
     text-decoration: none;
     display: inline-block;
+    font-weight: bold;
+
 }
 
 .mostrar-todos-link-button:hover {
-    background-color: #1e88e5;
+    background-color: #3a6ea5;
 }
 
 .regresar-button-container {
@@ -149,7 +153,7 @@
 }
 
 .regresar-button {
-    background-color: #42a5f5;
+    background-color: #4d82bc;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -157,10 +161,12 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
     font-size: 1em;
+    font-weight: bold;
+
 }
 
 .regresar-button:hover {
-    background-color: #1e88e5;
+    background-color: #3a6ea5;
 }
 
 /* Estilos Responsive */

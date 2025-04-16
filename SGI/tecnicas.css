@@ -71,11 +71,13 @@
     display: flex;
     justify-content: space-between;
     gap: 20px;
+    
   }
   
   .botones-acciones .btn-azul {
     padding: 10px 20px;
     font-size: 16px;
     width: 140px; /* o lo que prefieras */
+    font-weight: bold;
   }
   

@@ -3,56 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SGI - Estadísticas de <span id="nombre-carrera"></span></title>
+    <title>SGI - Estadísticas de <span id="nombre-carrera"></span></title> <!-- ⚠️ Este <span> no se interpretará dentro del <title>, debe asignarse vía JS -->
+    
+    <!-- Estilos globales del sistema -->
     <link rel="stylesheet" href="styles-fondo.css">
+
+    <!-- Estilos específicos de la vista de detalle de estadísticas -->
     <link rel="stylesheet" href="estadisticas-detalle.css">
+
+    <!-- Íconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-       <!-- Contenedor del header -->
-       <div id="header-container"></div>
 
-       <!-- Llamas al JS después del contenedor -->
-       <script src="header.js"></script>
+    <!-- Contenedor que será rellenado por el archivo header.js con el menú superior -->
+    <div id="header-container"></div>
 
+    <!-- Script para cargar dinámicamente el header (notificaciones y perfil) -->
+    <script src="header.js"></script>
 
-   <div id="notification-panel" class="hidden">
-       <p>No tienes nuevas notificaciones</p>
-   </div>
+    <!-- Panel flotante de notificaciones -->
+    <div id="notification-panel" class="hidden">
+        <p>No tienes nuevas notificaciones</p>
+    </div>
 
-   <div id="profile-menu" class="hidden">
-       <p id="profile-name">Nombre Psicólogo</p>
-       <div class="profile-menu-item">Actualizar información</div>
-       <div class="profile-menu-item">Cambiar contraseña</div>
-       <div class="profile-menu-item" onclick="location.href='index.html'">Cerrar sesión</div>
-   </div>
+    <!-- Menú de perfil que se muestra al hacer clic en el icono de usuario -->
+    <div id="profile-menu" class="hidden">
+        <p id="profile-name">Nombre Psicólogo</p>
+        <div class="profile-menu-item">Actualizar información</div>
+        <div class="profile-menu-item">Cambiar contraseña</div>
+        <div class="profile-menu-item" onclick="location.href='index.html'">Cerrar sesión</div>
+    </div>
 
-
+    <!-- CONTENIDO PRINCIPAL -->
     <main class="detalle-container">
         <h1>Estadísticas</h1>
+
         <section class="contenido-principal">
+            <!-- PANEL IZQUIERDO: Información de la carrera -->
             <div class="info-carrera-container">
                 <div class="logo-placeholder"><i class="fas fa-graduation-cap"></i></div>
+                
+                <!-- Texto de nombre de carrera -->
                 <p>Carrera</p>
-                <p id="nombre-carrera-detalle"></p>
-                <p>Num Alumnos</p>
-                <p id="num-alumnos"></p>
-                <button class="regresar-button" onclick="window.location.href='estadisticas-carreras.html'">Regresar</button>            </div>
+                <p id="nombre-carrera-detalle"></p> <!-- 🔁 El nombre de la carrera se inserta dinámicamente desde JS -->
 
+                <!-- Número de alumnos por carrera -->
+                <p>Num Alumnos</p>
+                <p id="num-alumnos"></p> <!-- 🔁 Backend debe proporcionar este dato (puede venir de la BD) -->
+
+                <!-- Botón para volver a la lista general de carreras -->
+                <button class="regresar-button" onclick="window.location.href='estadisticas-carreras.html'">Regresar</button>
+            </div>
+
+            <!-- PANEL DERECHO: Gráfico e interacciones -->
             <div class="grafico-container">
                 <div class="grafico-estadisticas">
                     <h2>Gráfico de Estadísticas</h2>
+                    
+                    <!-- Imagen del gráfico (puede ser estática o sustituida por una gráfica real con JS) -->
                     <img src="img/grafico-placeholder.png" alt="Gráfico de Estadísticas">
+                    <!-- 🔁 Recomendación backend: generar este gráfico dinámicamente con librerías como Chart.js desde JS
+                         usando datos de: GET /api/estadisticas/carrera?nombre=NombreCarrera -->
                 </div>
+
+                <!-- Botones para cambiar la vista del gráfico -->
                 <div class="opciones-grafico">
-                    <button class="boton-grafico">Por Semestre</button>
-                    <button class="boton-grafico">Total</button>
-                    <button class="boton-grafico">Descargar</button>
+                    <button class="boton-grafico">Por Semestre</button> <!-- Puede activar vista semestral (recomendado con JS y API) -->
+                    <button class="boton-grafico">Total</button> <!-- Vista agregada de todas las sesiones o alumnos -->
+                    <button class="boton-grafico">Descargar</button> <!-- Puede descargar el gráfico como PDF o imagen (usando JS) -->
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- Script específico de esta vista -->
+    <!-- Backend puede usar parámetros en URL (?carrera=Nombre) para cargar datos al cargar la página -->
     <script src="estadisticas-detalle.js"></script>
 </body>
 </html>

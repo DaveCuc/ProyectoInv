@@ -4,44 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SGI - Sesiones de Alumno</title>
+
+    <!-- Estilos compartidos del sistema -->
     <link rel="stylesheet" href="styles-fondo.css">
+
+    <!-- Estilos específicos para esta vista -->
     <link rel="stylesheet" href="sesiones-alumno.css">
 
+    <!-- Íconos de Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-       <!-- Contenedor del header -->
-       <div id="header-container"></div>
 
-       <!-- Llamas al JS después del contenedor -->
-       <script src="header.js"></script>
+    <!-- Contenedor del header (inyectado dinámicamente con JS) -->
+    <div id="header-container"></div>
 
+    <!-- Script que inserta el header y gestiona perfil, notificaciones, etc -->
+    <script src="header.js"></script>
 
-   <div id="notification-panel" class="hidden">
-       <p>No tienes nuevas notificaciones</p>
-   </div>
+    <!-- Panel flotante de notificaciones -->
+    <div id="notification-panel" class="hidden">
+        <p>No tienes nuevas notificaciones</p>
+    </div>
 
-   <div id="profile-menu" class="hidden">
-       <p id="profile-name">Nombre Psicólogo</p>
-       <div class="profile-menu-item">Actualizar información</div>
-       <div class="profile-menu-item">Cambiar contraseña</div>
-       <div class="profile-menu-item" onclick="location.href='index.html'">Cerrar sesión</div>
-   </div>
+    <!-- Menú de perfil flotante -->
+    <div id="profile-menu" class="hidden">
+        <p id="profile-name">Nombre Psicólogo</p>
+        <div class="profile-menu-item">Actualizar información</div>
+        <div class="profile-menu-item">Cambiar contraseña</div>
+        <div class="profile-menu-item" onclick="location.href='index.html'">Cerrar sesión</div>
+    </div>
 
-
+    <!-- CONTENIDO PRINCIPAL -->
     <main class="sesiones-container">
+
+        <!-- SECCIÓN IZQUIERDA: Detalles del alumno -->
         <section class="alumno-details-section">
             <div class="avatar-container">
-                <i class="fas fa-user"></i>
+                <i class="fas fa-user"></i> <!-- Ícono de usuario -->
             </div>
+
+            <!-- 🟡 El JS debe insertar los datos del alumno obtenidos desde la URL o la BD -->
             <h3>Nombre Alumno: <span id="nombre-alumno"></span></h3>
             <p>Núm. control: <span id="num-control"></span></p>
             <p>Carrera: <span id="carrera"></span></p>
+
+            <!-- 🔵 Puede redirigir a una ficha completa con info psicológica u observaciones -->
             <button class="ver-info-button">Ver más Información</button>
         </section>
 
+        <!-- SECCIÓN DERECHA: Historial de sesiones -->
         <section class="sesiones-info-section">
+
+            <!-- Título -->
             <h2>Sesiones de alumno</h2>
+
+            <!-- 🗓️ Tabla que lista cada sesión -->
+            <!-- El backend debe cargar los datos aquí: fecha, asunto, enlace al PDF -->
             <table class="sesiones-table">
                 <thead>
                     <tr>
@@ -51,8 +70,12 @@
                     </tr>
                 </thead>
                 <tbody id="tabla-sesiones">
-                    </tbody>
+                    <!-- 🔽 Aquí el JS inyecta filas con sesiones desde la BD -->
+                </tbody>
             </table>
+
+            <!-- 🔢 Resumen estadístico del alumno -->
+            <!-- Estos datos deben venir del backend: cantidad de sesiones, faltas, etc. -->
             <div class="resumen-alumno">
                 <p>Núm. sesiones: <span id="num-sesiones"></span></p>
                 <p>Faltas o inasistencias: <span id="faltas"></span></p>
@@ -60,15 +83,14 @@
                 <p>Asistidas: <span id="asistidas"></span></p>
             </div>
 
+            <!-- 🔙 Botón para volver al listado de alumnos -->
             <div class="botones-container">
                 <button class="btn btn-azul" onclick="location.href='psicologo-alumnos.html'">Regresar</button>
-               
             </div>
-
-
         </section>
     </main>
 
+    <!-- Script que maneja la carga dinámica de la info -->
     <script src="sesiones-alumno.js"></script>
 </body>
 </html>

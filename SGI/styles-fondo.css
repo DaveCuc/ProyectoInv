@@ -275,7 +275,7 @@ header {
     cursor: pointer;
     transition: background-color 0.3s ease;
     font-weight: bold;
-
+    
   }
   
   .botones-container .btn-azul:hover {

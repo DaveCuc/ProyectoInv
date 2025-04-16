@@ -241,13 +241,14 @@ header {
     background-color: #4d82bc;
     color: white;
     border: none;
-    padding: 14px;
+    padding: 10px;
     width: 100%;
     border-radius: 10px;
     cursor: pointer;
     font-size: 18px;
     transition: all 0.3s ease;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 10px;
   }
   
   .btn-azul:hover {
@@ -264,8 +265,8 @@ header {
   }
   
   .botones-container .btn-azul {
-    width: 25%;
-    padding: 12px;
+    width: 18%;
+    padding: 10px;
     font-size: 16px;
     border-radius: 10px;
     border: none;

@@ -1,37 +1,38 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const profileIcon = document.getElementById("profile-icon");
-    const profileMenu = document.getElementById("profile-menu");
-    const siNoButtons = document.querySelectorAll('.si-no-btn');
-    const opcionButtons = document.querySelectorAll('.opcion-btn');
+    // === PERFIL DEL USUARIO (MENÚ FLotante) ===
+    const profileIcon = document.getElementById("profile-icon"); // Icono de usuario en el header
+    const profileMenu = document.getElementById("profile-menu"); // Menú flotante con cerrar sesión, etc.
 
-    // Evento para abrir/cerrar el menú de perfil
+    // === BOTONES DE SELECCIÓN (Formulario) ===
+    const siNoButtons = document.querySelectorAll('.si-no-btn');       // Botones de sí/no
+    const opcionButtons = document.querySelectorAll('.opcion-btn');    // Botones de opción única
+
+    // ==== MENÚ DE PERFIL: Mostrar/Ocultar ====
     if (profileIcon) {
         profileIcon.addEventListener("click", function (event) {
             toggleElement(profileMenu);
-            event.stopPropagation();
+            event.stopPropagation(); // Previene que se cierre al hacer clic dentro
         });
     }
 
-    // Evento para cerrar los menús al hacer clic fuera de ellos
     document.addEventListener("click", function () {
-        if (profileMenu) {
-            profileMenu.classList.add("hidden");
-        }
+        if (profileMenu) profileMenu.classList.add("hidden");
     });
 
-    // Evitar que los clics dentro de los menús cierren los mismos
     if (profileMenu) {
         profileMenu.addEventListener("click", function (event) {
             event.stopPropagation();
         });
     }
 
-    // Función para mostrar/ocultar un elemento
     function toggleElement(element) {
         element.classList.toggle("hidden");
     }
 
-    // Handle Sí/No button clicks
+    // === GESTIÓN DE BOTONES SÍ / NO ===
+    // Cada grupo tiene 2 botones: sí/no. El seleccionado se marca con .selected
+    // Backend debe capturar el atributo `data-option` como clave y `data-value` como valor
+    // Ejemplo: { padres_juntos: "no", conflictos_madre: "si" }
     siNoButtons.forEach(button => {
         button.addEventListener('click', function() {
             const optionGroup = this.closest('.si-no-group');
@@ -40,7 +41,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Handle multiple choice option button clicks
+    // === GESTIÓN DE BOTONES DE OPCIÓN ÚNICA ===
+    // Similar a un input tipo radio. Solo uno puede estar seleccionado por categoría.
+    // Cada botón tiene: data-opcion y data-value
+    // Ejemplo: { actitud_padres: "hostil", relacion_hermanos: "afectuosa" }
     opcionButtons.forEach(button => {
         button.addEventListener('click', function() {
             const optionGroup = this.closest('.opcion-seleccion');
@@ -49,7 +53,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Function to populate student info (example - you'll need to adapt this)
+    // === FUNCIÓN PARA CARGAR DATOS DEL ALUMNO EN LA TARJETA SUPERIOR ===
+    // Estos datos se deben enviar desde la vista anterior como parámetros en la URL.
+    // El backend debe redirigir incluyendo esos datos: ejemplo:
+    // location.href = "antecedentes.html?nombre=Juan Pérez&control=123456&carrera=ITI&semestre=5&edad=20&asistencias=2"
     function populateStudentInfo(nombre, numControl, carrera, semestre, edad, asistencias) {
         document.getElementById("info-nombre-alumno").textContent = nombre;
         document.getElementById("info-num-control").textContent = numControl;
@@ -59,8 +66,8 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById("info-asistencias").textContent = asistencias;
     }
 
-    // Example usage (you'll need to call this function when navigating to this page)
-    // You'll need to get the student data and call this function, similar to the initial questionnaire
+    // === EXTRAER LOS DATOS DESDE LA URL (pasados por la vista anterior) ===
+    // Si estos valores están presentes, se usan para rellenar la tarjeta del alumno
     const urlParams = new URLSearchParams(window.location.search);
     const nombre = urlParams.get('nombre');
     const numControl = urlParams.get('control');

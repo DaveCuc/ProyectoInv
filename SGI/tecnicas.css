@@ -28,7 +28,7 @@
     padding: 12px 20px;
     border: none;
     border-radius: 8px;
-    background-color: #e0f7fa; /* A very light blue */
+    background-color: #e1e6eb; /* A very light blue */
     color: #333;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
@@ -41,13 +41,13 @@
 }
 
 .tecnica-btn:hover {
-    background-color: #b2ebf2; /* Slightly darker light blue on hover */
+    background-color: #7095bd; /* Slightly darker light blue on hover */
     transform: translateY(-3px); /* Increased lift on hover */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
 }
 
 .tecnica-btn.selected {
-    background-color: #03a9f4; /* A more prominent, but still pleasant blue */
+    background-color: #ef007e; /* A more prominent, but still pleasant blue */
     color: white;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
@@ -65,3 +65,17 @@
         transform: translateY(-2px);
     }
 }
+
+.botones-acciones {
+    margin-top: 90px; /* 🔽 baja el bloque de botones */
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .botones-acciones .btn-azul {
+    padding: 10px 20px;
+    font-size: 16px;
+    width: 140px; /* o lo que prefieras */
+  }
+  

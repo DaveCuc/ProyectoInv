@@ -100,3 +100,18 @@ main.estadisticas-container h1 {
         width: 150px; /* Ancho menor para pantallas pequeñas */
     }
 }
+
+.boton-derecha {
+    display: flex;
+    justify-content: flex-end;
+    max-width: 1070px;      /* para alinear con las tarjetas */
+    margin: -90px auto 0 auto; /* 🔼 espacio arriba, centrado horizontalmente */
+    padding-right: 40px;    /* 🔧 ajuste para alinearse con el borde de las tarjetas */
+  }
+  
+  .boton-derecha .btn-azul {
+    padding: 10px 25px;
+    font-weight: bold;
+    width: auto;
+  }
+  

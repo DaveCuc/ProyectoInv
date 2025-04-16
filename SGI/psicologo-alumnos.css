@@ -66,10 +66,11 @@
     border: 1px solid #ddd;
     border-radius: 8px;
     overflow: hidden;
+   
 }
 
 .alumnos-table th, .alumnos-table td {
-    border: 1px solid #ddd;
+    border: 1px solid #808080;
     padding: 12px;
     text-align: left;
 }

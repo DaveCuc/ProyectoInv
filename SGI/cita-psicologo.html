@@ -4,34 +4,61 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SGI - Citas</title>
+
+  <!-- ✅ CSS global del sistema (estilos base compartidos) -->
   <link rel="stylesheet" href="styles-fondo.css" />
+
+  <!-- ✅ CSS específico para esta vista (citas de psicólogo) -->
   <link rel="stylesheet" href="cita-psicologo.css" />
+
+  <!-- ✅ Íconos para botones de acción, usuario, etc. -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+  <!-- ✅ Script que contiene la lógica principal de esta vista:
+       - interacción con botones de asistencia
+       - actualización de tarjeta lateral
+       - envío de datos temporales al mensaje inferior
+  -->
   <script defer src="cita-psicologo.js"></script>
 </head>
 <body>
-  <!-- Contenedor del header -->
+
+  <!-- ✅ HEADER DINÁMICO (insertado por JS desde 'header.js') -->
   <div id="header-container"></div>
   <script src="header.js"></script>
 
-  <!-- Paneles flotantes -->
+  <!-- ✅ NOTIFICACIONES: panel flotante que se puede mostrar con datos desde el backend
+       🔗 Sugerido: GET /api/notificaciones?usuario_id=... -->
   <div id="notification-panel" class="hidden">
     <p>No tienes nuevas notificaciones</p>
   </div>
 
+  <!-- ✅ MENÚ DE PERFIL: acciones básicas del psicólogo logueado -->
   <div id="profile-menu" class="hidden">
     <p id="profile-name">Nombre Psicólogo</p>
+
+    <!-- 🔄 Enlace a edición de perfil -->
+    <!-- PUT /api/psicologo/update -->
     <div class="profile-menu-item">Actualizar información</div>
+
+    <!-- 🔐 Cambio de contraseña -->
+    <!-- POST /api/auth/cambiar-password -->
     <div class="profile-menu-item">Cambiar contraseña</div>
+
+    <!-- 🔚 Cierre de sesión -->
+    <!-- GET /logout o limpieza de token en frontend -->
     <div class="profile-menu-item" onclick="location.href='index.html'">Cerrar sesión</div>
   </div>
 
-  <!-- Contenido principal -->
+  <!-- ✅ SECCIÓN PRINCIPAL DE CONTENIDO -->
   <main class="citas-main">
     <h1>Seleccionar cita de alumno</h1>
 
     <div class="citas-container">
-      <!-- Tabla de citas -->
+
+      <!-- ✅ TABLA DE CITAS: lista de citas asignadas al psicólogo -->
+      <!-- 🔗 Backend debe poblarla dinámicamente desde:
+           GET /api/citas?psicologo_id={id} -->
       <div class="cita-list-table">
         <table class="tabla-citas">
           <thead>
@@ -42,16 +69,24 @@
             </tr>
           </thead>
           <tbody>
+            <!-- ✅ Cada fila representa una cita -->
+            <!-- 🔁 Estas filas deben generarse desde el backend -->
             <tr data-nombre="ALUMNO 1234" data-control="A1234" data-asistencias="5" data-estatus="Activo">
               <td>21 Feb<br>12:00 PM</td>
               <td>ALUMNO 1234</td>
               <td>
                 <div class="asistencia-options">
+                  <!-- ❌ Marcar falta -->
+                  <!-- POST /api/asistencia { alumno_id: A1234, cita_id, estado: "falta" } -->
                   <i class="fas fa-times faltante"></i>
+
+                  <!-- ✅ Marcar asistencia -->
+                  <!-- POST /api/asistencia { alumno_id: A1234, cita_id, estado: "asistencia" } -->
                   <i class="fas fa-check presente"></i>
                 </div>
               </td>
             </tr>
+
             <tr data-nombre="ALUMNO 5678" data-control="A5678" data-asistencias="3" data-estatus="Activo">
               <td>22 Feb<br>01:00 PM</td>
               <td>ALUMNO 5678</td>
@@ -62,6 +97,7 @@
                 </div>
               </td>
             </tr>
+
             <tr data-nombre="ALUMNO 9101" data-control="A9101" data-asistencias="2" data-estatus="Activo">
               <td>23 Feb<br>09:00 AM</td>
               <td>ALUMNO 9101</td>
@@ -74,22 +110,34 @@
             </tr>
           </tbody>
         </table>
+
+        <!-- 🔙 Botón de navegación hacia atrás (sin lógica backend) -->
         <button class="btn btn-azul" onclick="location.href='interfaz-psicologo.html'">Atrás</button>
       </div>
 
-      <!-- Tarjeta lateral del alumno -->
+      <!-- ✅ TARJETA LATERAL: muestra la información del alumno seleccionado -->
+      <!-- El contenido se actualiza automáticamente con JS al hacer clic en una fila -->
       <div class="alumno-details-card">
         <div class="alumno-avatar">
           <i class="fas fa-user"></i>
         </div>
+
+        <!-- 🧠 Datos a llenar dinámicamente desde la fila seleccionada -->
         <h2 id="alumno-nombre">Nombre Alumno</h2>
         <p>Num Control: <span id="alumno-control">-</span></p>
         <p>Asistencias: <span id="alumno-asistencias">-</span></p>
         <p>Estatus: <span id="alumno-estatus">-</span></p>
+
+        <!-- 🎯 Este botón debe iniciar una sesión (cuestionario) con el alumno activo -->
+        <!-- Se sugiere enviar el número de control como parámetro:
+             cuestionario-citas.html?alumno=A1234 -->
         <button class="btn btn-sesion" onclick="location.href='cuestionario-citas.html'">Empezar Sesión</button>
       </div>
     </div>
 
+    <!-- ✅ MENSAJE INFORMATIVO -->
+    <!-- JS usa este div para mostrar mensajes temporales de acción:
+         asistencia registrada, cita eliminada, etc. -->
     <div class="mensaje" id="mensaje"></div>
   </main>
 </body>

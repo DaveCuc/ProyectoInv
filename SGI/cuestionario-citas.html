@@ -1,80 +1,125 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SGI - Cuestionario Inicial</title>
-    <link rel="stylesheet" href="cuestionario-citas.css">
-    <link rel="stylesheet" href="styles-fondo.css">
-    <link rel="stylesheet" href="antecedentes.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
-    <script defer src="cuestionario-citas.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SGI - Cuestionario Inicial</title>
+
+  <!-- Estilos específicos de esta vista -->
+  <link rel="stylesheet" href="cuestionario-citas.css" />
+  <link rel="stylesheet" href="styles-fondo.css" />
+  <link rel="stylesheet" href="antecedentes.css" />
+
+  <!-- Íconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+  <!-- JS donde se debe capturar la selección de motivos y enviar al backend -->
+  <script defer src="cuestionario-citas.js"></script>
 </head>
 <body>
-       <!-- Contenedor del header -->
-       <div id="header-container"></div>
 
-       <!-- Llamas al JS después del contenedor -->
-       <script src="header.js"></script>
+  <!-- HEADER DINÁMICO (insertado desde header.js) -->
+  <div id="header-container"></div>
+  <script src="header.js"></script>
 
+  <!-- NOTIFICACIONES flotantes (opcionalmente pobladas vía API) -->
+  <div id="notification-panel" class="hidden">
+    <p>No tienes nuevas notificaciones</p>
+  </div>
 
-   <div id="notification-panel" class="hidden">
-       <p>No tienes nuevas notificaciones</p>
-   </div>
+  <!-- MENÚ DE PERFIL -->
+  <div id="profile-menu" class="hidden">
+    <p id="profile-name">Nombre Psicólogo</p>
+    <div class="profile-menu-item">Actualizar información</div>
+    <div class="profile-menu-item">Cambiar contraseña</div>
+    <div class="profile-menu-item" onclick="location.href='index.html'">Cerrar sesión</div>
+  </div>
 
-   <div id="profile-menu" class="hidden">
-       <p id="profile-name">Nombre Psicólogo</p>
-       <div class="profile-menu-item">Actualizar información</div>
-       <div class="profile-menu-item">Cambiar contraseña</div>
-       <div class="profile-menu-item" onclick="location.href='index.html'">Cerrar sesión</div>
-   </div>
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="cuestionario-main">
+    <h1>CUESTIONARIO INICIAL</h1>
 
+    <div class="cuestionario-container">
 
-    <main class="cuestionario-main">
-        <h1>CUESTIONARIO INICIAL</h1>
-
-        <div class="cuestionario-container">
-            <div class="alumno-info-card">
-                <div class="alumno-avatar">
-                    <i class="fas fa-user"></i>
-                </div>
-                <p>Nombre Alumno: <span id="info-nombre-alumno"></span></p>
-                <p>Núm Control: <span id="info-num-control"></span></p>
-                <p>Carrera: <span id="info-carrera"></span></p>
-                <p>Semestre: <span id="info-semestre"></span></p>
-                <p>Edad: <span id="info-edad"></span></p>
-                <p>Asistencias: <span id="info-asistencias"></span></p>
-                <button class="btn btn-azul">Ver más Información</button>
-            </div>
-
-            <div class="formulario-card">
-                <h2>Motivo de Consulta</h2>
-                <div class="motivo-consulta-buttons">
-                    <button type="button" class="motivo-btn" data-motivo="ansiedad">Ansiedad</button>
-                    <button type="button" class="motivo-btn" data-motivo="depresion">Depresión</button>
-                    <button type="button" class="motivo-btn" data-motivo="angustia">Angustia</button>
-                    <button type="button" class="motivo-btn" data-motivo="autoestima">Autoestima baja</button>
-                    <button type="button" class="motivo-btn" data-motivo="indiferencia">Indiferencia</button>
-                    <button type="button" class="motivo-btn" data-motivo="confusion">Confusión</button>
-                    <button type="button" class="motivo-btn" data-motivo="descontrol">Descontrol</button>
-                    <button type="button" class="motivo-btn" data-motivo="desorientacion">Desorientación</button>
-                    <button type="button" class="motivo-btn" data-motivo="incoherencia">Incoherencia</button>
-                    <button type="button" class="motivo-btn" data-motivo="sobrevaloracion">Sobrevaloración</button>
-                    <button type="button" class="motivo-btn" data-motivo="otros">Otros</button>
-                </div>
-                <label for="otros-especificar">Especifique:</label>
-                <textarea id="otros-especificar" name="otros-especificar" rows="3"></textarea>
-
-                <div class="botones-container">
-                    <button class="btn btn-azul" onclick="location.href='cita-psicologo.html'">atras</button>
-                    <button class="btn btn-azul" onclick="location.href='antecedentes.html'">siguiente</button>
-                   
-                </div>
-                  
-                
-            </div>
+      <!-- 🔹 TARJETA CON DATOS DEL ALUMNO (rellenar dinámicamente) -->
+      <!-- 🔗 Backend debe proporcionar esta información vía localStorage, query param o fetch:
+            GET /api/alumno/{id}
+            {
+              nombre,
+              num_control,
+              carrera,
+              semestre,
+              edad,
+              asistencias
+            }
+      -->
+      <div class="alumno-info-card">
+        <div class="alumno-avatar">
+          <i class="fas fa-user"></i>
         </div>
-    </main>
+        <p>Nombre Alumno: <span id="info-nombre-alumno"></span></p>
+        <p>Núm Control: <span id="info-num-control"></span></p>
+        <p>Carrera: <span id="info-carrera"></span></p>
+        <p>Semestre: <span id="info-semestre"></span></p>
+        <p>Edad: <span id="info-edad"></span></p>
+        <p>Asistencias: <span id="info-asistencias"></span></p>
+
+        <!-- 🔍 Botón para mostrar más info (opcional) -->
+        <!-- Puede redirigir a vista detallada: alumno.html?id=XXX -->
+        <button class="btn btn-azul">Ver más Información</button>
+      </div>
+
+      <!-- 🔸 FORMULARIO DE SELECCIÓN DE MOTIVOS -->
+      <!-- Backend debe registrar esta información en tabla:
+           "motivos_consulta" o similar, con campos como:
+           - alumno_id (relación con alumnos)
+           - motivo_seleccionado (puede ser varios)
+           - especificacion_extra (textarea)
+      -->
+      <div class="formulario-card">
+        <h2>Motivo de Consulta</h2>
+
+        <!-- BOTONES DE MOTIVO -->
+        <!-- Cada botón tiene un data-motivo, que se captura en el JS.
+             Permite múltiples selecciones, se espera un array de motivos -->
+        <div class="motivo-consulta-buttons">
+          <button type="button" class="motivo-btn" data-motivo="ansiedad">Ansiedad</button>
+          <button type="button" class="motivo-btn" data-motivo="depresion">Depresión</button>
+          <button type="button" class="motivo-btn" data-motivo="angustia">Angustia</button>
+          <button type="button" class="motivo-btn" data-motivo="autoestima">Autoestima baja</button>
+          <button type="button" class="motivo-btn" data-motivo="indiferencia">Indiferencia</button>
+          <button type="button" class="motivo-btn" data-motivo="confusion">Confusión</button>
+          <button type="button" class="motivo-btn" data-motivo="descontrol">Descontrol</button>
+          <button type="button" class="motivo-btn" data-motivo="desorientacion">Desorientación</button>
+          <button type="button" class="motivo-btn" data-motivo="incoherencia">Incoherencia</button>
+          <button type="button" class="motivo-btn" data-motivo="sobrevaloracion">Sobrevaloración</button>
+          <button type="button" class="motivo-btn" data-motivo="otros">Otros</button>
+        </div>
+
+        <!-- CAMPO PARA ESPECIFICAR MOTIVO ADICIONAL -->
+        <!-- Este texto debe guardarse si el motivo seleccionado fue "otros" -->
+        <label for="otros-especificar">Especifique:</label>
+        <textarea id="otros-especificar" name="otros-especificar" rows="3"></textarea>
+
+        <!-- BOTONES DE NAVEGACIÓN -->
+        <!-- "Atrás" solo navega a la vista anterior (sin guardar) -->
+        <!-- "Siguiente" debe ejecutar:
+             1. Guardar los motivos seleccionados en la base de datos:
+                POST /api/cuestionario/motivos
+                {
+                  alumno_id: xxx,
+                  motivos: ["ansiedad", "depresion", ...],
+                  otros: "Texto opcional"
+                }
+             2. Redirigir a antecedentes.html
+        -->
+        <div class="botones-container">
+          <button class="btn btn-azul" onclick="location.href='cita-psicologo.html'">atras</button>
+          <button class="btn btn-azul" onclick="location.href='antecedentes.html'">siguiente</button>
+        </div>
+
+      </div>
+    </div>
+  </main>
 </body>
 </html>

@@ -1,10 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // === ELEMENTOS DE LA INTERFAZ ===
     const profileIcon = document.getElementById("profile-icon");
     const profileMenu = document.getElementById("profile-menu");
     const motivoButtons = document.querySelectorAll(".motivo-btn");
     const otrosEspecificar = document.getElementById("otros-especificar");
 
-    // Evento para abrir/cerrar el menú de perfil
+    // === MANEJO DEL MENÚ DE PERFIL (abrir/cerrar) ===
     if (profileIcon) {
         profileIcon.addEventListener("click", function (event) {
             toggleElement(profileMenu);
@@ -12,33 +13,32 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Evento para cerrar los menús al hacer clic fuera de ellos
     document.addEventListener("click", function () {
-        if (profileMenu) {
-            profileMenu.classList.add("hidden");
-        }
+        if (profileMenu) profileMenu.classList.add("hidden");
     });
 
-    // Evitar que los clics dentro de los menús cierren los mismos
     if (profileMenu) {
         profileMenu.addEventListener("click", function (event) {
             event.stopPropagation();
         });
     }
 
-    // Función para mostrar/ocultar un elemento
+    // Mostrar u ocultar paneles flotantes
     function toggleElement(element) {
         element.classList.toggle("hidden");
     }
 
-    // Handle motivo button clicks
+    // === MANEJO DE SELECCIÓN DE MOTIVOS ===
+    // Los botones representan un motivo de consulta (ansiedad, depresión, etc.)
+    // Backend debe recibir los valores seleccionados al guardar el cuestionario
     motivoButtons.forEach(button => {
         button.addEventListener("click", function() {
-            this.classList.toggle("selected");
+            this.classList.toggle("selected");  // Permite múltiples selecciones
         });
     });
 
-    // Disable/enable "Especifique" based on "Otros" selection
+    // === HABILITAR / DESHABILITAR CAMPO DE "OTROS" ===
+    // Si se selecciona "otros", se activa el campo textarea para escribir
     const otrosButton = document.querySelector(".motivo-btn[data-motivo='otros']");
     if (otrosButton && otrosEspecificar) {
         otrosEspecificar.disabled = !otrosButton.classList.contains("selected");
@@ -47,7 +47,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Function to populate student info (example - you'll need to adapt this)
+    // === FUNCIÓN PARA POBLAR LOS DATOS DEL ALUMNO ===
+    // El backend debe enviar estos datos al llegar a esta vista (vía URL, sessionStorage o API)
+    // Esta función se puede invocar con los valores obtenidos para mostrar el alumno correcto
     function populateStudentInfo(nombre, numControl, carrera, semestre, edad, asistencias) {
         document.getElementById("info-nombre-alumno").textContent = nombre;
         document.getElementById("info-num-control").textContent = numControl;
@@ -57,22 +59,23 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("info-asistencias").textContent = asistencias;
     }
 
-    // Example usage (you'll need to call this function when navigating to this page)
-    // populateStudentInfo("Juan Pérez", "123456", "Ingeniería en Sistemas", "5to", "20", "3");
+    // Ejemplo de uso (el backend o frontend debe llamar esto con los datos del alumno)
+    // populateStudentInfo("Juan Pérez", "123456", "Ingeniería", "5to", "20", "3");
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    // ... (Previous JavaScript code for profile menu and initial questionnaire) ...
 
-    const siguienteInicialBtn = document.getElementById('siguiente-inicial');
-    const atrasFamiliaresBtn = document.getElementById('atras-familiares');
-    const siguienteFamiliaresBtn = document.getElementById('siguiente-familiares');
+// === SEGUNDA CARGA PARA SECCIONES AVANZADAS (si aplica en cuestionario dividido) ===
+document.addEventListener('DOMContentLoaded', function() {
+    // BOTONES DE NAVEGACIÓN ENTRE SECCIONES
+    const siguienteInicialBtn = document.getElementById('siguiente-inicial');     // Avanzar a antecedentes familiares
+    const atrasFamiliaresBtn = document.getElementById('atras-familiares');       // Volver a motivos
+    const siguienteFamiliaresBtn = document.getElementById('siguiente-familiares'); // Ir a la siguiente sección
+
     const inicialQuestionnaireSection = document.getElementById('initial-questionnaire');
     const familyBackgroundSection = document.getElementById('family-background');
-    const siNoButtons = document.querySelectorAll('.si-no-btn');
-    const opcionButtons = document.querySelectorAll('.opcion-btn');
 
-    // Navigation between sections
+    // === NAVEGACIÓN ENTRE SECCIONES DEL FORMULARIO ===
+    // Cambia visibilidad entre bloques de preguntas
     if (siguienteInicialBtn) {
         siguienteInicialBtn.addEventListener('click', function() {
             inicialQuestionnaireSection.style.display = 'none';
@@ -87,14 +90,19 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // 🚀 Aquí puedes insertar un envío al backend antes de redireccionar
     if (siguienteFamiliaresBtn) {
         siguienteFamiliaresBtn.addEventListener('click', function() {
-            // Replace 'siguiente_pagina.html' with the actual URL of the next page
+            // 🔗 Reemplazar con la ruta real a guardar datos antes de continuar
+            // Ejemplo: POST /api/cuestionario/familiares
+            // Después: redirigir a próxima sección
             window.location.href = 'siguiente_pagina.html';
         });
     }
 
-    // Handle Sí/No button clicks
+    // === BOTONES SÍ/NO: Selección binaria por grupo ===
+    // Se usa para preguntas tipo "¿Tuvo problemas de conducta?"
+    const siNoButtons = document.querySelectorAll('.si-no-btn');
     siNoButtons.forEach(button => {
         button.addEventListener('click', function() {
             const optionGroup = this.closest('.si-no-group');
@@ -103,7 +111,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Handle multiple choice option button clicks
+    // === BOTONES OPCIÓN ÚNICA (tipo radio) ===
+    // Se usa para preguntas tipo "¿Cuál es tu nivel de energía?"
+    const opcionButtons = document.querySelectorAll('.opcion-btn');
     opcionButtons.forEach(button => {
         button.addEventListener('click', function() {
             const optionGroup = this.closest('.opcion-seleccion');

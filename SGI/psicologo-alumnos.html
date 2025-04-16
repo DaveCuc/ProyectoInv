@@ -4,40 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SGI - Alumnos</title>
-    <link rel="stylesheet" href="styles-fondo.css">
-    <link rel="stylesheet" href="psicologo-alumnos.css">
+
+    <!-- Estilos generales del sistema y específicos para esta vista -->
+    <link rel="stylesheet" href="styles-fondo.css"> <!-- Fondo, header, notificaciones -->
+    <link rel="stylesheet" href="psicologo-alumnos.css"> <!-- Estilo propio para esta página -->
+
+    <!-- Librería de iconos (font-awesome) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-       <!-- Contenedor del header -->
+       <!-- Carga del header global de la plataforma -->
        <div id="header-container"></div>
 
-       <!-- Llamas al JS después del contenedor -->
+       <!-- Carga del script que inyecta el header y maneja el menú usuario -->
        <script src="header.js"></script>
 
+       <!-- Panel flotante de notificaciones, aparece si hay eventos -->
+       <div id="notification-panel" class="hidden">
+           <p>No tienes nuevas notificaciones</p>
+       </div>
 
-   <div id="notification-panel" class="hidden">
-       <p>No tienes nuevas notificaciones</p>
-   </div>
+       <!-- Menú flotante del perfil (actualizar, cambiar contraseña, cerrar sesión) -->
+       <div id="profile-menu" class="hidden">
+           <p id="profile-name">Nombre Psicólogo</p>
+           <div class="profile-menu-item">Actualizar información</div>
+           <div class="profile-menu-item">Cambiar contraseña</div>
+           <div class="profile-menu-item" onclick="location.href='index.html'">Cerrar sesión</div>
+       </div>
 
-   <div id="profile-menu" class="hidden">
-       <p id="profile-name">Nombre Psicólogo</p>
-       <div class="profile-menu-item">Actualizar información</div>
-       <div class="profile-menu-item">Cambiar contraseña</div>
-       <div class="profile-menu-item" onclick="location.href='index.html'">Cerrar sesión</div>
-   </div>
-
+    <!-- CONTENIDO PRINCIPAL: Vista de alumnos asignados al psicólogo -->
     <main class="alumnos-container">
+        
+        <!-- Sección izquierda: listado y búsqueda de alumnos -->
         <div class="alumnos-list-section">
+
+            <!-- Título principal -->
             <div class="alumnos-header">
                 <h1>Alumnos</h1>
             </div>
 
+            <!-- 🔍 Barra de búsqueda -->
+            <!-- Backend puede implementar un filtro por nombre o número de control -->
             <div class="search-bar">
                 <label for="busqueda">Nombre o número de control</label>
                 <input type="text" id="busqueda" name="busqueda" placeholder="Ingrese nombre o número de control">
             </div>
 
+            <!-- 📋 Tabla dinámica con los alumnos (rellenada con JS) -->
+            <!-- Backend debe devolver un listado con campos: nombre, carrera, num_control -->
             <table class="alumnos-table">
                 <thead>
                     <tr>
@@ -47,30 +61,38 @@
                     </tr>
                 </thead>
                 <tbody>
-                    </tbody>
+                    <!-- 🟡 Aquí se inyectarán las filas con datos de los alumnos -->
+                </tbody>
             </table>
 
+            <!-- Botón para volver a la vista principal del psicólogo -->
             <div class="regresar-button-container">
                 <button class="regresar-button" onclick="location.href='interfaz-Psicologo.html'">Regresar</button>
             </div>
         </div>
 
+        <!-- Sección derecha: vista previa del alumno seleccionado -->
+        <!-- Este panel se actualiza dinámicamente al hacer clic en un alumno -->
         <div class="alumno-details-section">
             <div class="avatar-container">
-                <i class="fas fa-user"></i>
+                <i class="fas fa-user"></i> <!-- Icono del alumno -->
             </div>
-            <h3>Nombre Alumno</h3>
-            <p>Núm . control: <span id="info-num-control"></span></p>
-            <p>Estatus : <span id="info-estatus"></span></p>
+            <h3>Nombre Alumno</h3> <!-- 🟡 Se actualiza con el nombre del alumno seleccionado -->
+            <p>Núm . control: <span id="info-num-control"></span></p> <!-- ID único del alumno -->
+            <p>Estatus : <span id="info-estatus"></span></p> <!-- Estatus activo, dado de baja, etc -->
+
+            <!-- Este botón lleva al detalle del alumno (historial de sesiones, etc) -->
             <button class="ver-info-button" onclick="location.href='sesiones-alumno.html'">Ver información</button>
         </div>
     </main>
 
+    <!-- Botón inferior flotante para mostrar todos los alumnos (sin filtros) -->
+    <!-- Backend puede usarlo para cargar todos sin importar la búsqueda -->
     <div class="mostrar-todos-link-container">
         <button class="mostrar-todos-link-button">Mostrar todos los alumnos</button>
     </div>
 
-   
+    <!-- Script que controla esta vista (búsqueda, clics en la tabla, visualización dinámica) -->
     <script src="psicologo-alumnos.js"></script>
 </body>
 </html>

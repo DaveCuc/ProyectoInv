@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrar Administrador</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="login-container">
+    <h2>Registro de Administrador</h2>
+    <form id="admin-register-form">
+      <div class="input-group">
+        <input type="text" id="nombre" placeholder="Nombre completo" required>
+      </div>
+      <div class="input-group">
+        <input type="email" id="correo" placeholder="Correo institucional" required>
+      </div>
+      <div class="input-group">
+        <input type="password" id="clave-secreta" placeholder="Clave secreta" required>
+      </div>
+      <div class="input-group">
+        <input type="password" id="password" placeholder="Contraseña" required>
+      </div>
+      <button type="submit" class="btn">Registrar</button>
+    </form>
+    <div class="links">
+      <a href="index.html">Volver al inicio</a>
+    </div>
+    <div id="mensaje" class="mensaje"></div>
+  </div>
+
+  <script>
+    const form = document.getElementById("admin-register-form");
+    const mensaje = document.getElementById("mensaje");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const claveIngresada = document.getElementById("clave-secreta").value;
+      const claveCorrecta = "SGIADMIN2025"; // Puedes cambiar esta clave
+
+      if (claveIngresada !== claveCorrecta) {
+        mensaje.textContent = "❌ Clave incorrecta. No tienes acceso para registrar administradores.";
+        mensaje.style.color = "red";
+        return;
+      }
+
+      mensaje.textContent = "✅ Administrador registrado correctamente (simulado).";
+      mensaje.style.color = "green";
+      form.reset();
+    });
+  </script>
+</body>
+</html>

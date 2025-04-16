@@ -24,21 +24,22 @@ main.estadisticas-container h1 {
 }
 
 .carrera-item {
-    background-color: #e0f7fa;
-    border: 1px solid #b2ebf2;
+    background-color: #d9e9f8; /* Azul muy claro, combina con #4d82bc */
+    border: 1px solid #bcd4ee; /* Borde ligeramente más oscuro */
     border-radius: 8px;
     padding: 15px;
     text-align: center;
     cursor: pointer;
-    transition: background-color 0.2s ease;
-    width: 200px; /* Ancho fijo para cada contenedor */
-    box-sizing: border-box; /* Incluye el padding y el borde en el ancho */
-    margin-bottom: 15px; /* Añadimos margen inferior para separar las filas si se envuelven */
-}
-
-.carrera-item:hover {
-    background-color: #ccedf2;
-}
+    transition: background-color 0.3s ease;
+    width: 200px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+  }
+  
+  .carrera-item:hover {
+    background-color: #c5dbf2; /* Efecto hover ligeramente más oscuro */
+  }
+  
 
 .logo-placeholder {
     width: 50px;
@@ -114,4 +115,33 @@ main.estadisticas-container h1 {
     font-weight: bold;
     width: auto;
   }
+  
+  .carrera-item.porcentaje-total {
+    background-color: #d7c7f5;
+    border: 1px solid #c5b0e6;
+  }
+  
+  .carrera-item.porcentaje-total .logo-placeholder {
+    background-color: #ccb1ee;
+    color: #673ab7;
+  }
+
+  .carrera-item.asistencias-total {
+    background-color: #bbf3bd;
+    border: 1px solid #91d892;
+  }
+  
+  .carrera-item.asistencias-total .logo-placeholder {
+    background-color: #c5e6c6;
+    color: #2e7d32;
+  }
+
+  .carrera-item.porcentaje-total:hover {
+    background-color: #ddd0f7;
+  }
+  
+  .carrera-item.asistencias-total:hover {
+    background-color: #cdecd1;
+  }
+  
   

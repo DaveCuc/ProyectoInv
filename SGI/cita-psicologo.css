@@ -65,7 +65,7 @@ body {
   
   .asistencia-options i {
     cursor: pointer;
-    transition: transform 0.2s ease;
+    transition: transform 0.3s ease;
   }
   
   .asistencia-options i:hover {

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recuperar Contraseña</title>
+  <link rel="stylesheet" href="styles-fondo.css" />
+  <link rel="stylesheet" href="recuperar.css" />
+</head>
+<body>
+  <div class="recuperar-container">
+    <h2>¿Olvidaste tu contraseña?</h2>
+    <p>Ingresa tu nombre de usuario. Luego te pediremos el correo con el que te registraste para enviarte un código de verificación.</p>
+
+    <form id="form-usuario" class="form-section">
+      <label for="usuario">Nombre de usuario</label>
+      <input type="text" id="usuario" required />
+      <button type="submit" class="btn">Siguiente</button>
+      <button class="btn" onclick="location.href='index.html'">← Volver al inicio</button>
+    </form>
+
+    <form id="form-correo" class="form-section hidden">
+      <label for="correo">Correo electrónico registrado</label>
+      <input type="email" id="correo" required />
+      <button type="submit" class="btn">Enviar código</button>
+    </form>
+
+    <form id="form-codigo" class="form-section hidden">
+      <label for="codigo">Código de verificación</label>
+      <input type="text" id="codigo" required />
+      <p id="temporizador"></p>
+      <label for="nueva-contrasena">Nueva contraseña</label>
+      <input type="password" id="nueva-contrasena" required />
+      <button type="submit" class="btn">Restablecer contraseña</button>
+    </form>
+
+    
+  </div>
+
+  <script src="recuperar.js"></script>
+</body>
+</html>

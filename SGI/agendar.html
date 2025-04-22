@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Agendar Cita</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo-circle">SGI</div>
+    <span class="titulo-header">SGI Interfaz Alumno</span>
+    <div class="notificaciones"><span class="icono-campana">🔔</span><span class="badge">0</span></div>
+    <div class="perfil-inicial">NA</div>
+  </header>
+  <main class="agenda-container">
+    <h2>Agendar Cita</h2>
+    <label>Asunto:</label>
+    <input type="text" id="asunto" placeholder="Escribe el asunto de la cita" />
+    <h3>Selecciona fecha</h3>
+    <div id="calendar-controls">
+      <button onclick="prevMonth()">◀</button>
+      <span id="calendar-month-year"></span>
+      <button onclick="nextMonth()">▶</button>
+    </div>
+    <div id="calendar" class="calendar-grid"></div>
+    <h3>Turno</h3>
+    <div class="turno-btns">
+      <button class="activo" onclick="selectTurno('Matutino')">Matutino</button>
+      <button onclick="selectTurno('Vespertino')">Vespertino</button>
+    </div>
+    <h3>Horarios disponibles</h3>
+    <div id="horarios" class="horarios-grid"></div>
+    <h3>Primera vez con el psicólogo</h3>
+    <div class="primera-vez">
+      <button onclick="selectPrimeraVez(true)">Sí</button>
+      <button onclick="selectPrimeraVez(false)">No</button>
+    </div>
+    <p id="mensaje" class="mensaje-alerta"></p>
+    <div class="acciones">
+      <button onclick="window.location.href='index.html'">Atrás</button>
+      <button onclick="realizarCita()">Realizar Cita</button>
+    </div>
+  </main>
+  <script src="calendar.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,361 @@
+/* ------------------------------
+   REINICIO Y BASE
+------------------------------ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  body {
+    background-color: #f2f2f2;
+    color: #333;
+    min-height: 100vh;
+  }
+  
+  /* ------------------------------
+     ENCABEZADO (HEADER)
+  ------------------------------ */
+  header {
+    background-color: #84d1f3;
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .logo-circle {
+    background: white;
+    color: #84d1f3;
+    font-weight: bold;
+    font-size: 18px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .titulo-header {
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    margin-left: 10px;
+    flex-grow: 1;
+    text-align: left;
+  }
+  
+  .notificaciones {
+    position: relative;
+    margin-right: 15px;
+  }
+  
+  .icono-campana {
+    font-size: 20px;
+  }
+  
+  .badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background: red;
+    color: white;
+    font-size: 12px;
+    border-radius: 50%;
+    padding: 2px 6px;
+  }
+  
+  .perfil-inicial {
+    background: white;
+    color: #84d1f3;
+    font-weight: bold;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* ------------------------------
+     CONTENEDOR PRINCIPAL
+  ------------------------------ */
+  .agenda-container {
+    background: white;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 750px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+  
+  /* ------------------------------
+     INICIO / BIENVENIDA
+  ------------------------------ */
+  h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .num-control,
+  .nombre-alumno {
+    font-size: 18px;
+    margin: 5px 0;
+  }
+  
+  .botones-profesional {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .botones-profesional button {
+    background-color: #7cd1f3;
+    border: none;
+    color: white;
+    padding: 12px 32px;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+  }
+  
+  .botones-profesional button:hover {
+    background-color: #58bce3;
+  }
+  
+  /* ------------------------------
+     FORMULARIOS Y ENTRADAS
+  ------------------------------ */
+  input[type="text"] {
+    width: 90%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #7cbbe6;
+    margin: 10px 0 20px;
+    font-size: 16px;
+  }
+  
+  /* ------------------------------
+     CALENDARIO
+  ------------------------------ */
+  #calendar-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
+  
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .calendar-grid button {
+    padding: 10px 0;
+    border: none;
+    border-radius: 8px;
+    background: #ddd;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .calendar-grid button.pasado {
+    background-color: #cccccc !important;
+    color: #666;
+    cursor: not-allowed;
+  }
+  
+  .calendar-grid button.ocupado {
+    background-color: #e74c3c !important;
+    color: white;
+    cursor: not-allowed;
+  }
+  
+  .calendar-grid button.seleccionado {
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+  }
+  
+  /* ------------------------------
+     TURNOS Y HORARIOS
+  ------------------------------ */
+  .turno-btns button,
+  .primera-vez button {
+    margin: 5px;
+    padding: 8px 16px;
+    border: 2px solid #7cbbe6;
+    border-radius: 25px;
+    background: white;
+    cursor: pointer;
+    font-size: 15px;
+  }
+  
+  .turno-btns button.activo,
+  .primera-vez button.activo {
+    background: #7cbbe6;
+    color: white;
+  }
+  
+  .horarios-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin: 15px 0;
+  }
+  
+  .horarios-grid button {
+    background: #447fb7;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .horarios-grid button.disabled {
+    background: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .horarios-grid button.seleccionado {
+    background-color: #276cbf;
+  }
+  
+  /* ------------------------------
+     MENSAJES Y ACCIONES
+  ------------------------------ */
+  .mensaje-alerta {
+    background: #f5d0eb;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 20px 0;
+    font-weight: bold;
+  }
+  
+  .acciones {
+    margin-top: 30px;
+  }
+  
+  .acciones button {
+    margin: 10px;
+    padding: 10px 25px;
+    border-radius: 25px;
+    border: none;
+    background: #7cd1f3;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+  }
+  
+  /* ------------------------------
+     CONSULTAR CITA – TARJETAS
+  ------------------------------ */
+  .titulo-citas {
+    font-size: 24px;
+    color: #2c3e50;
+    margin-bottom: 5px;
+  }
+  
+  .subtitulo {
+    color: #555;
+    font-weight: 500;
+    margin-bottom: 10px;
+    font-size: 15px;
+  }
+  
+  .filtro-citas {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 25px;
+  }
+  
+  .filtro-citas button {
+    border: 2px solid #7cbbe6;
+    background: white;
+    padding: 8px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #337ab7;
+    transition: 0.3s;
+  }
+  
+  .filtro-citas button.activo {
+    background: #7cbbe6;
+    color: white;
+  }
+  
+  .tarjetas-citas {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .tarjeta-cita {
+    background-color: #f9fbfd;
+    border-left: 4px solid #7cbbe6;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: left;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    position: relative;
+    max-width: 700px;
+    margin: auto;
+  }
+  
+  .encabezado-cita {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    color: #337ab7;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: capitalize;
+  }
+  
+  .estado-cancelada {
+    background-color: #f2c3c3;
+    color: #a94442;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-weight: bold;
+  }
+  
+  .botones-cita {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+  }
+  
+  .botones-cita button {
+    border: none;
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+    background-color: #7cbbe6;
+  }
+  
+  .botones-cita .btn-cancelar {
+    background-color: #e74c3c;
+  }
+  

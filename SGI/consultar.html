@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mis Citas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo-circle">SGI</div>
+    <span class="titulo-header">SGI Interfaz Alumno</span>
+    <div class="notificaciones">
+      <span class="icono-campana">🔔</span>
+      <span class="badge">0</span>
+    </div>
+    <div class="perfil-inicial">NA</div>
+  </header>
+  <main class="agenda-container">
+    <h2 class="titulo-citas">Mis Citas Agendadas</h2>
+    <p class="subtitulo">Filtrar por:</p>
+    <div class="filtro-citas">
+      <button class="activo" onclick="filtrarCitas('todas')">Todas</button>
+      <button onclick="filtrarCitas('proximas')">Próximas</button>
+      <button onclick="filtrarCitas('pasadas')">Pasadas</button>
+    </div>
+    <div id="contenedorCitas" class="tarjetas-citas"></div>
+    <div class="acciones">
+      <button onclick="window.location.href='index.html'">Atrás</button>
+    </div>
+  </main>
+  <script src="consultar.js"></script>
+</body>
+</html>
+

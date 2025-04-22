@@ -4,16 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro Alumno</title>
-    <link rel="stylesheet" href="registrostyles.css">
+    <!--<link rel="stylesheet" href="registrostyles.css">-->
+    <link rel="stylesheet" href="index.css" />
+
+
 </head>
 <body>
-    <div class="register-container">
+    <div class="container">
         
         <h2>REGISTRO ALUMNO</h2>
         <form action="interfaz-alumno.html">
-            <input type="text" placeholder="Nombre(s)" required>
-            <input type="text" placeholder="Apellidos" required>
-            <input type="text" placeholder="Num. Control" required>
+            <div class="input-group"><input type="text" placeholder="Nombre(s)" required></div>
+            <div class="input-group"><input type="text" placeholder="Apellidos" required></div>
+            <div class="input-group"><input type="text" placeholder="Num. Control" required></div>
+            
             <select name="carrera" required>
                 <option value="" disabled selected>Carrera</option>
                 <option value="bioquimica">Ing. Bioquímica</option>
@@ -28,12 +32,12 @@
                 <option value="administracion">Lic. en Administración</option>
                 <option value="contador">Contador Público</option>
             </select>
-            <input type="number" placeholder="Semestre" required>
-            <input type="email" placeholder="Correo" required>
-            <input type="password" placeholder="Contraseña" required>
+            <div class="input-group"><input type="number" placeholder="Semestre" required></div>
+            <div class="input-group"><input type="email" placeholder="Correo" required></div>
+            <div class="input-group"><input type="password" placeholder="Contraseña" required></div>
             <button type="submit" class="btn">Ingresar</button>
-            <a href="index.html" class="btn-atras">← Regresar</a>
-
+            <div class="links">
+            <a href="index.html">Regresar</a></div>
         </form>
     </div>
 </body>

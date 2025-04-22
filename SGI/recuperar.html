@@ -4,33 +4,39 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Recuperar Contraseña</title>
+<!--
   <link rel="stylesheet" href="styles-fondo.css" />
+
   <link rel="stylesheet" href="recuperar.css" />
+
+-->
+
+<link rel="stylesheet" href="index.css" />
+
 </head>
 <body>
-  <div class="recuperar-container">
+  <div class="container">
     <h2>¿Olvidaste tu contraseña?</h2>
     <p>Ingresa tu nombre de usuario. Luego te pediremos el correo con el que te registraste para enviarte un código de verificación.</p>
 
     <form id="form-usuario" class="form-section">
-      <label for="usuario">Nombre de usuario</label>
-      <input type="text" id="usuario" required />
+      <div class="input-group" ><input type="text" placeholder="Nombre de usuario" id="usuario" required></div>
       <button type="submit" class="btn">Siguiente</button>
       <button class="btn" onclick="location.href='index.html'">← Volver al inicio</button>
     </form>
 
     <form id="form-correo" class="form-section hidden">
-      <label for="correo">Correo electrónico registrado</label>
-      <input type="email" id="correo" required />
+      <div class="input-group" ><input type="email" placeholder="Correo electrónico registrado" id="correo" required /></div>
       <button type="submit" class="btn">Enviar código</button>
     </form>
 
     <form id="form-codigo" class="form-section hidden">
-      <label for="codigo">Código de verificación</label>
-      <input type="text" id="codigo" required />
+      
+      <div class="input-group" ><input type="text" placeholder="Código de verificación" id="codigo" required /> </div>
       <p id="temporizador"></p>
-      <label for="nueva-contrasena">Nueva contraseña</label>
-      <input type="password" id="nueva-contrasena" required />
+
+      
+      <div class="input-group" ><input type="password" placeholder="Nueva contraseña" id="nueva-contrasena" required /></div>
       <button type="submit" class="btn">Restablecer contraseña</button>
     </form>
 
@@ -40,3 +46,4 @@
   <script src="recuperar.js"></script>
 </body>
 </html>
+

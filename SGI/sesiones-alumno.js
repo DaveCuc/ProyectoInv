@@ -21,22 +21,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Datos de ejemplo de las sesiones del alumno (reemplazar con tu lógica real)
     const sesionesAlumno = [
-        { fecha: '12/02/2025', asunto: 'Problema 1', pdf: 'sesion1.pdf' },
-        { fecha: '19/02/2025', asunto: 'Seguimiento', pdf: 'sesion2.pdf' },
-        { fecha: '26/02/2025', asunto: 'Avance', pdf: 'sesion3.pdf' },
-    ];
+        { id: 1, fecha: '12/02/2025', asunto: 'Problema 1' },
+        { id: 2, fecha: '19/02/2025', asunto: 'Seguimiento' },
+        { id: 3, fecha: '26/02/2025', asunto: 'Avance' }
+      ];
+      
 
     // Llenar la tabla de sesiones
     sesionesAlumno.forEach(sesion => {
         const row = tablaSesionesBody.insertRow();
         row.insertCell().textContent = sesion.fecha;
         row.insertCell().textContent = sesion.asunto;
+    
         const descargarCell = row.insertCell();
         const linkDescarga = document.createElement('a');
-        linkDescarga.href = sesion.pdf;
+        linkDescarga.href = `reportes/generar_pdf.php?id_sesion=${sesion.id}`;
         linkDescarga.textContent = 'Descargar';
+        linkDescarga.target = '_blank'; // Para abrir en nueva pestaña
         descargarCell.appendChild(linkDescarga);
     });
+    
 
     // Datos de ejemplo de información adicional (reemplazar con tu lógica real)
     const infoAdicional = {

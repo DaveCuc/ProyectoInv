@@ -1,0 +1,135 @@
+/* Estilos corregidos para sprites avatar */
+.bg-amarillo64 {
+    background-image: url('css_sprites.png');
+    background-position: -384px -1024px;
+    background-repeat: no-repeat;
+    background-size: 1152px auto;
+    width: 64px;
+    height: 64px;
+  }
+  
+  .bg-azul64 {
+    background-image: url('css_sprites.png');
+    background-position: -448px -1024px;
+    background-repeat: no-repeat;
+    background-size: 1152px auto;
+    width: 64px;
+    height: 64px;
+  }
+  
+  .bg-black64 {
+    background-image: url('css_sprites.png');
+    background-position: -512px -1024px;
+    background-repeat: no-repeat;
+    background-size: 1152px auto;
+    width: 64px;
+    height: 64px;
+  }
+  
+  .bg-blanco64 {
+    background-image: url('css_sprites.png');
+    background-position: -576px -1024px;
+    background-repeat: no-repeat;
+    background-size: 1152px auto;
+    width: 64px;
+    height: 64px;
+  }
+  
+  .bg-blue64 {
+    background-image: url('css_sprites.png');
+    background-position: -640px -1024px;
+    background-repeat: no-repeat;
+    background-size: 1152px auto;
+    width: 64px;
+    height: 64px;
+  }
+  
+  .bg-cafe64 {
+    background-image: url('css_sprites.png');
+    background-position: -704px -1024px;
+    background-repeat: no-repeat;
+    background-size: 1152px auto;
+    width: 64px;
+    height: 64px;
+  }
+  
+  .bg-green64 {
+    background-image: url('css_sprites.png');
+    background-position: -768px -1024px;
+    background-repeat: no-repeat;
+    background-size: 1152px auto;
+    width: 64px;
+    height: 64px;
+  }
+  
+  .bg-morado64 {
+    background-image: url('css_sprites.png');
+    background-position: -832px -1024px;
+    background-repeat: no-repeat;
+    background-size: 1152px auto;
+    width: 64px;
+    height: 64px;
+  }
+  
+  .bg-naranja64 {
+    background-image: url('css_sprites.png');
+    background-position: -896px -1024px;
+    background-repeat: no-repeat;
+    background-size: 1152px auto;
+    width: 64px;
+    height: 64px;
+  }
+  
+  .bg-negro64 {
+    background-image: url('css_sprites.png');
+    background-position: -960px -1024px;
+    background-repeat: no-repeat;
+    background-size: 1152px auto;
+    width: 64px;
+    height: 64px;
+  }
+  
+  .bg-red64 {
+    background-image: url('css_sprites.png');
+    background-position: -1024px -1024px;
+    background-repeat: no-repeat;
+    background-size: 1152px auto;
+    width: 64px;
+    height: 64px;
+  }
+  
+  .bg-rojo64 {
+    background-image: url('css_sprites.png');
+    background-position: -1088px -1024px;
+    background-repeat: no-repeat;
+    background-size: 1152px auto;
+    width: 64px;
+    height: 64px;
+  }
+  
+  .bg-rosa64 {
+    background-image: url('css_sprites.png');
+    background-position: -384px -1088px;
+    background-repeat: no-repeat;
+    background-size: 1152px auto;
+    width: 64px;
+    height: 64px;
+  }
+  
+  .bg-verde64 {
+    background-image: url('css_sprites.png');
+    background-position: -448px -1088px;
+    background-repeat: no-repeat;
+    background-size: 1152px auto;
+    width: 64px;
+    height: 64px;
+  }
+  
+  .bg-yellow64 {
+    background-image: url('css_sprites.png');
+    background-position: -512px -1088px;
+    background-repeat: no-repeat;
+    background-size: 1152px auto;
+    width: 64px;
+    height: 64px;
+  }

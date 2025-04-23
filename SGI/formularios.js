@@ -6,49 +6,88 @@ function mostrarFormulario(formulario) {
     document.querySelector(`.tab[onclick="mostrarFormulario('${formulario}')"]`).classList.add('active');
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    document.querySelector('.user-info').addEventListener('click', function() {
-        this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'flex' ? 'none' : 'flex';
-    });
+document.addEventListener('DOMContentLoaded', function () {
+    // Menú perfil (si existiera)
+    const userInfo = document.querySelector('.user-info');
+    if (userInfo) {
+        userInfo.addEventListener('click', function () {
+            this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'flex' ? 'none' : 'flex';
+        });
 
-    document.addEventListener('click', function(event) {
-        if (!event.target.closest('.user-info')) {
-            document.querySelector('.dropdown').style.display = 'none';
-        }
-    });
+        document.addEventListener('click', function (event) {
+            if (!event.target.closest('.user-info')) {
+                document.querySelector('.dropdown').style.display = 'none';
+            }
+        });
+    }
 
     // Animación de la foto de perfil
     const profilePhoto = document.querySelector('.profile-photo');
+    if (profilePhoto) {
+        profilePhoto.addEventListener('mouseover', function () {
+            this.style.transform = 'scale(1.05)';
+            this.style.transition = 'transform 0.3s ease';
+        });
 
-    profilePhoto.addEventListener('mouseover', function() {
-        this.style.transform = 'scale(1.05)';
-        this.style.transition = 'transform 0.3s ease';
-    });
+        profilePhoto.addEventListener('mouseout', function () {
+            this.style.transform = 'scale(1)';
+        });
+    }
 
-    profilePhoto.addEventListener('mouseout', function() {
-        this.style.transform = 'scale(1)';
-    });
+    // Botón atrás (selección segura por clase)
+    const btnAtras = document.querySelector('.btn-azul:first-of-type');
+    if (btnAtras) {
+        btnAtras.addEventListener('click', function () {
+            window.location.href = 'interfaz-alumno.html';
+        });
+    }
 
-    // Regresar a interfaz-alumno.html
-    document.querySelector('.btn:first-child').addEventListener('click', function() {
-        window.location.href = 'interfaz-alumno.html';
-    });
-
-    // Guardar información y redirigir
+    // Botón guardar
     const btnGuardar = document.getElementById('btnGuardar');
+    btnGuardar.addEventListener('click', function () {
+        const nombre = document.getElementById('nombre')?.value;
+        const apellidoP = document.getElementById('apellidoP')?.value;
+        const apellidoM = document.getElementById('apellidoM')?.value;
+        const numControl = document.getElementById('numControl')?.value;
 
-    btnGuardar.addEventListener('click', function() {
-        // Obtener información del formulario
-        const nombre = document.getElementById('nombre').value;
-        const apellidos = document.getElementById('apellidos').value;
-        const numControl = document.getElementById('numControl').value;
-
-        // Guardar información en localStorage
         localStorage.setItem('nombre', nombre);
-        localStorage.setItem('apellidos', apellidos);
+        localStorage.setItem('apellidoP', apellidoP);
+        localStorage.setItem('apellidoM', apellidoM);
         localStorage.setItem('numControl', numControl);
 
-        // Redirigir a la página de agendar cita y consultar cita
-        window.location.href = 'interfaz-alumno2.html'; // Asegúrate de que este sea el nombre correcto de tu archivo
+        window.location.href = 'interfaz-alumno2.html';
+    });
+
+    // Campos dinámicos para hermanos
+    const numHermanosInput = document.getElementById('numHermanos');
+    const contenedorHermanos = document.getElementById('contenedorHermanos');
+
+    numHermanosInput.addEventListener('input', function () {
+        let num = parseInt(this.value);
+        if (isNaN(num) || num < 0) {
+            this.value = 0;
+            num = 0;
+        }
+
+        contenedorHermanos.innerHTML = ''; // Limpiar contenido
+        for (let i = 0; i < num; i++) {
+            const div = document.createElement('div');
+            div.className = 'form-row';
+            div.innerHTML = `
+                <div class="input-group">
+                    <input type="text" placeholder="Nombre del hermano ${i + 1}">
+                </div>
+                <div class="input-group">
+                    <input type="number" placeholder="Edad" min="0" value="0">
+                </div>
+                <div class="input-group">
+                    <input type="text" placeholder="Escolaridad">
+                </div>
+                <div class="input-group">
+                    <input type="text" placeholder="Relación">
+                </div>
+            `;
+            contenedorHermanos.appendChild(div);
+        }
     });
 });

@@ -9,7 +9,102 @@
 
 </head>
 <body>
+    
+    <!--Hader-->
     <div id="particles-container"></div>
+    <div id="header-container"></div>
+    <script src="header.js"></script>
 
+
+
+    <main>
+        <div class="bienvenida-contenedor">
+            <h1 class="titulo-bienvenida">BIENVENIDO</h1>
+            <p class="subtexto-bienvenida">Usuario</p>
+        </div>
+        
+        <!--Botones de Psicologo-->
+        <div class="botones-menu">
+        
+            <button class="btn" id="btn-sesion" onclick="location.href='cita-Psicologo.html'">citas</button>
+            <button class="btn" id="btn-alumnos" onclick="location.href='psicologo-alumnos.html'">Alumnos</button>
+            <button class="btn" id="btn-estadisticas" onclick="location.href='estadisticas-carreras.html'">Estadísticas</button>
+    
+        </div>
+
+        
+        <!--Botones de Administrador-->
+        <div class="botones-menu">
+        
+            <button class="btn" id="btn-sesion" onclick="location.href='cita-Psicologo.html'">Agregar Psicólogo</button>
+            <button class="btn" id="btn-alumnos" onclick="location.href='psicologo-alumnos.html'">Estadísticas</button>
+            <button class="btn" id="btn-estadisticas" onclick="location.href='estadisticas-carreras.html'">Psicólogos</button>
+    
+        </div>
+
+        
+        <!--Botones de Alumno-->
+        <div class="botones-menu">
+        
+            <button class="btn" id="btn-sesion" onclick="location.href='cita-Psicologo.html'">Agendar Cita</button>
+            <button class="btn" id="btn-alumnos" onclick="location.href='psicologo-alumnos.html'">Consultar Cita</button>
+            
+    
+        </div>
+        
+    </main>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
+    <script>
+        tsParticles.load("particles-container", {
+            fullScreen: {
+                enable: true,
+                zIndex: -1 // Para que esté detrás de todo
+            },
+            particles: {
+                number: {
+                    value: 60,
+                    density: {
+                        enable: true,
+                        area: 800
+                    }
+                },
+                color: {
+                    value: "#ef007e"
+                },
+                shape: {
+                    type: "circle"
+                },
+                opacity: {
+                    value: 0.5
+                },
+                size: {
+                    value: 4
+                },
+                move: {
+                    enable: true,
+                    speed: 1,
+                    direction: "none",
+                    outModes: "out"
+                },
+                links: {
+                    enable: true,
+                    distance: 150,
+                    color: "#ef007e",
+                    opacity: 0.4,
+                    width: 1
+                }
+            },
+            background: {
+                color: "#ffffff"
+            }
+        });
+    </script>
+    
 </body>
 </html>

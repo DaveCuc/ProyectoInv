@@ -4,119 +4,239 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de Registro</title>
+    <link rel="stylesheet" href="styles-fondo.css">
     <link rel="stylesheet" href="formularios.css">
+    <link rel="stylesheet" href="avatar.css">
+
 </head>
 <body>
-    <div class="navbar">
-        <div class="logo-container">
-            <img src="img/logo.png" alt="Logo" class="logo">
-            <span class="title">SGI Interfaz Alumno</span>
-        </div>
-        <div class="notification">
-            <span class="notification-badge">1</span>
-        </div>
-        <div class="user-menu">
-            <div class="user-info">
-                <span>NOMBRE ALUMNO</span>
-                <span class="user-icon"></span>
-            </div>
-            <div class="dropdown">
-                <a href="#">Actualizar Información</a>
-                <a href="#">Cambiar Contraseña</a>
-                <a href="#">Cerrar Sesión</a>
-            </div>
-        </div>
-    </div>
+    <!-- Contenedor del header -->
+    <div id="header-container"></div>
+    <script src="header.js"></script>
 
     <div class="form-container">
         <div class="tabs">
-            <button class="tab active" onclick="mostrarFormulario('generales')">Generales</button>
-            <button class="tab" onclick="mostrarFormulario('familiares')">Familiares</button>
+            <table style="width: 100%;">
+                <th style="width: 45%;">
+                    <button class="tab active" onclick="mostrarFormulario('generales')">Generales</button>
+                </th>
+                <th>
+                </th>
+                <th style="width: 45%;">
+                    <button class="tab" onclick="mostrarFormulario('familiares')">Familiares</button>
+                </th>
+            </table>
+            
+
+            
+        
+            
         </div>
 
+        <!-- Formulario Generales -->
         <form id="formGenerales" class="form-section">
             <h2>Datos Generales</h2>
             <div class="form-row">
-                <label>Nombre(s): <input type="text"></label>
-                <label>Apellidos: <input type="text"></label>
-                <label>Num. de Control: <input type="text"></label>
+                <div class="input-group">
+                    <input type="text" placeholder="Nombre(s)" id="nombre">
+                </div>
+                <div class="input-group">
+                    <input type="text" placeholder="Apellido Paterno" id="apellidoP">
+                </div>
+                <div class="input-group">
+                    <input type="text" placeholder="Apellido Materno" id="apellidoM">
+                </div>
+                <div class="input-group">
+                    <input type="text" placeholder="Num. de Control" id="numControl">
+                </div>
             </div>
+
             <div class="form-row">
-                <label>Lugar de nacimiento: <input type="text"></label>
-                <label>Fecha de nacimiento: <input type="date"></label>
-                <label>Sexo: 
-                    <select>
-                        <option value="">Seleccionar</option>
+                <div class="input-group">
+                    <input type="text" placeholder="Lugar de nacimiento" id="lugarNacimiento">
+                </div>
+                <div class="input-group">
+                    <input type="date" placeholder="Fecha de nacimiento" id="fechaNacimiento">
+                </div>
+                <div class="input-group">
+                    <select id="sexo">
+                        <option value="">Sexo</option>
                         <option value="masculino">Masculino</option>
                         <option value="femenino">Femenino</option>
                         <option value="otro">Otro</option>
                     </select>
-                </label>
-                <label>Estado Civil: 
-                    <select>
-                        <option value="">Seleccionar</option>
+                </div>
+                <div class="input-group">
+                    <select id="estadoCivil">
+                        <option value="">Estado Civil</option>
                         <option value="soltero">Soltero/a</option>
                         <option value="casado">Casado/a</option>
                         <option value="divorciado">Divorciado/a</option>
                         <option value="viudo">Viudo/a</option>
                     </select>
-                </label>
-            </div>
-            <div class="form-row">
-                <label>Dirección: <input type="text"></label>
-                <label>Número: <input type="text"></label>
-                <label>Colonia: <input type="text"></label>
-            </div>
-            <div class="form-row">
-                <label>Código postal: <input type="text"></label>
-                <label>Ciudad: <input type="text"></label>
-                <label>Entidad federativa: <input type="text"></label>
-            </div>
-            <div class="form-row">
-                <label>Teléfono: <input type="tel"></label>
-                <label>Correo electrónico: <input type="email"></label>
-                <div class="profile-photo">
-                    <p>Foto de perfil</p>
-                    <input type="file">
                 </div>
             </div>
+
+            <div class="form-row">
+                <div class="input-group">
+                    <input type="text" placeholder="Dirección" id="direccion">
+                </div>
+                <div class="input-group">
+                    <input type="text" placeholder="Número" id="numero">
+                </div>
+                <div class="input-group">
+                    <input type="text" placeholder="Colonia" id="colonia">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="input-group">
+                    <input type="text" placeholder="Código postal" id="cp">
+                </div>
+                <div class="input-group">
+                    <input type="text" placeholder="Ciudad" id="ciudad">
+                </div>
+                <div class="input-group">
+                    <input type="text" placeholder="Entidad federativa" id="estado">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="input-group">
+                  <input type="tel" placeholder="Teléfono" id="telefono">
+                </div>
+                <div class="input-group">
+                  <input type="email" placeholder="Correo electrónico" id="email">
+                </div>
+                
+            </div>
+            <label>Selecciona tu avatar</label>
+            <!-- Selector de avatar dentro del formulario -->
+            <!-- Campo oculto para enviar al backend -->
+            <input type="hidden" id="avatarInput" name="avatar" value="">
+
+            <div class="avatar-trigger-wrapper">
+                <!-- Botón para seleccionar avatar -->
+                <div class="avatar-trigger" id="avatarTrigger"></div>
+                <!-- Ventana emergente con opciones -->
+                <div class="avatar-popup" id="avatarPopup">
+                    <div class="avatar-grid">
+                    <div class="avatar-choice bg-amarillo64" data-avatar="amarillo"></div>
+                    <div class="avatar-choice bg-azul64" data-avatar="azul"></div>
+                    <div class="avatar-choice bg-black64" data-avatar="black"></div>
+                    <div class="avatar-choice bg-blanco64" data-avatar="blanco"></div>
+                    <div class="avatar-choice bg-blue64" data-avatar="blue"></div>
+                    <div class="avatar-choice bg-cafe64" data-avatar="cafe"></div>
+                    <div class="avatar-choice bg-green64" data-avatar="green"></div>
+                    <div class="avatar-choice bg-morado64" data-avatar="morado"></div>
+                    <div class="avatar-choice bg-naranja64" data-avatar="naranja"></div>
+                    <div class="avatar-choice bg-negro64" data-avatar="negro"></div>
+                    <div class="avatar-choice bg-red64" data-avatar="red"></div>
+                    <div class="avatar-choice bg-rojo64" data-avatar="rojo"></div>
+                    <div class="avatar-choice bg-rosa64" data-avatar="rosa"></div>
+                    <div class="avatar-choice bg-verde64" data-avatar="verde"></div>
+                    <div class="avatar-choice bg-yellow64" data-avatar="yellow"></div>
+                    </div>
+                </div>
+            </div>
+                <script>
+                    const trigger = document.getElementById('avatarTrigger');
+                    const popup = document.getElementById('avatarPopup');
+                    const choices = document.querySelectorAll('.avatar-choice');
+                    const input = document.getElementById('avatarInput');
+
+                    // Aplicar avatar guardado al cargar la página
+                    const savedAvatar = localStorage.getItem('avatarSeleccionado');
+                    if (savedAvatar) {
+                    trigger.className = 'avatar-trigger bg-' + savedAvatar + '64';
+                    input.value = savedAvatar;
+                    }
+
+                    // Mostrar/ocultar ventana emergente al hacer clic en el avatar
+                    trigger.addEventListener('click', () => {
+                    popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
+                    });
+
+                    // Manejar selección de avatar
+                    choices.forEach(choice => {
+                    choice.addEventListener('click', () => {
+                        choices.forEach(c => c.classList.remove('selected'));
+                        choice.classList.add('selected');
+
+                        const avatarId = choice.dataset.avatar;
+
+                        trigger.className = 'avatar-trigger bg-' + avatarId + '64';
+                        input.value = avatarId;
+                        localStorage.setItem('avatarSeleccionado', avatarId);
+
+                        popup.style.display = 'none';
+                        console.log("Avatar guardado:", avatarId);
+                    });
+                    });
+                </script>
         </form>
 
+        <!-- Formulario Familiares -->
         <form id="formFamiliares" class="form-section hidden">
             <h2>Datos Padre</h2>
             <div class="form-row">
-                <label>Nombre Completo: <input type="text"></label>
-                <label>Edad: <input type="number"></label>
-                <label>Nivel y Grado de escolaridad: <input type="text"></label>
-                <label>Ocupación: <input type="text"></label>
+                <div class="input-group">
+                    <input type="text" placeholder="Nombre Completo" id="nombrePadre">
+                </div>
+                <div class="input-group">
+                    <input type="number" placeholder="Edad" id="edadPadre" min="0" value="0">
+                </div>
+                <div class="input-group">
+                    <input type="text" placeholder="Nivel y Grado de escolaridad" id="escolaridadPadre">
+                </div>
+                <div class="input-group">
+                    <input type="text" placeholder="Ocupación" id="ocupacionPadre">
+                </div>
             </div>
 
             <h2>Datos Madre</h2>
             <div class="form-row">
-                <label>Nombre Completo: <input type="text"></label>
-                <label>Edad: <input type="number"></label>
-                <label>Nivel y Grado de escolaridad: <input type="text"></label>
-                <label>Ocupación: <input type="text"></label>
+                <div class="input-group">
+                    <input type="text" placeholder="Nombre Completo" id="nombreMadre">
+                </div>
+                <div class="input-group">
+                    <input type="number" placeholder="Edad" id="edadMadre" min="0" value="0">
+                </div>
+                <div class="input-group">
+                    <input type="text" placeholder="Nivel y Grado de escolaridad" id="escolaridadMadre">
+                </div>
+                <div class="input-group">
+                    <input type="text" placeholder="Ocupación" id="ocupacionMadre">
+                </div>
             </div>
 
-            <h2>Hermanos (Num: <input type="number" style="width: 50px;">)</h2>
+            <h2>Hermanos</h2>
             <div class="form-row">
-                <label>Nombre Completo: <input type="text"></label>
-                <label>Edad: <input type="number"></label>
-                <label>Nivel y Grado de escolaridad: <input type="text"></label>
-                <label>Relación con ellos: <input type="text"></label>
+                <label for="numHermanos">Número de hermanos:</label>
+                <div class="input-group">
+                    <input type="number" id="numHermanos" value="0" min="0" style="width: 60px;">
+                </div>
             </div>
-            <div class="form-row">
-                <label>Nombre Completo: <input type="text"></label>
-                <label>Edad: <input type="number"></label>
-                <label>Nivel y Grado de escolaridad: <input type="text"></label>
-                <label>Relación con ellos: <input type="text"></label>
-            </div>
+            <div id="contenedorHermanos"></div>
         </form>
 
         <div class="buttons">
-            <button class="btn">Atrás</button>
-            <button class="btn primary" id="btnGuardar">Guardar</button>
+
+            <table  style="width: 100%;">
+                <th style="width: 15%;">
+                    <button class="btn-azul" type="button">Atrás</button>
+
+                </th>
+                <th>
+
+                </th>
+                <th style="width: 15%;">
+                    <button class="btn-azul" type="button" id="btnGuardar">Guardar</button>
+
+                </th>
+            </table>
+
+
         </div>
     </div>
 

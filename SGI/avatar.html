@@ -5,116 +5,85 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Selector de Avatar</title>
   <link rel="stylesheet" href="avatar.css">
-  <style>
-    .avatar-trigger {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      background-color: #ddd;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: 1152px auto;
-      cursor: pointer;
-      margin: 20px auto;
-    }
+  <link rel="stylesheet" href="formularios.css">
 
-    .avatar-popup {
-      position: absolute;
-      top: 100px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: none;
-      background: white;
-      border: 2px solid #90caf9;
-      border-radius: 10px;
-      padding: 15px;
-      z-index: 1000;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
 
-    .avatar-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 64px);
-      gap: 10px;
-      justify-content: center;
-    }
-
-    .avatar-choice {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      border: 2px solid ;
-      cursor: pointer;
-    }
-
-    .avatar-choice:hover,
-    .avatar-choice.selected {
-      border-color: #2196f3;
-    }
-  </style>
+ 
 </head>
 <body>
-  <!-- Campo oculto para enviar al backend -->
-  <input type="hidden" id="avatarInput" name="avatar" value="">
-
-  <!-- Botón para seleccionar avatar -->
-  <div class="avatar-trigger" id="avatarTrigger"></div>
-
-  <!-- Ventana emergente con opciones -->
-  <div class="avatar-popup" id="avatarPopup">
-    <div class="avatar-grid">
-      <div class="avatar-choice bg-amarillo64" data-avatar="amarillo"></div>
-      <div class="avatar-choice bg-azul64" data-avatar="azul"></div>
-      <div class="avatar-choice bg-black64" data-avatar="black"></div>
-      <div class="avatar-choice bg-blanco64" data-avatar="blanco"></div>
-      <div class="avatar-choice bg-blue64" data-avatar="blue"></div>
-      <div class="avatar-choice bg-cafe64" data-avatar="cafe"></div>
-      <div class="avatar-choice bg-green64" data-avatar="green"></div>
-      <div class="avatar-choice bg-morado64" data-avatar="morado"></div>
-      <div class="avatar-choice bg-naranja64" data-avatar="naranja"></div>
-      <div class="avatar-choice bg-negro64" data-avatar="negro"></div>
-      <div class="avatar-choice bg-red64" data-avatar="red"></div>
-      <div class="avatar-choice bg-rojo64" data-avatar="rojo"></div>
-      <div class="avatar-choice bg-rosa64" data-avatar="rosa"></div>
-      <div class="avatar-choice bg-verde64" data-avatar="verde"></div>
-      <div class="avatar-choice bg-yellow64" data-avatar="yellow"></div>
-    </div>
-  </div>
-
-  <script>
-    const trigger = document.getElementById('avatarTrigger');
-    const popup = document.getElementById('avatarPopup');
-    const choices = document.querySelectorAll('.avatar-choice');
-    const input = document.getElementById('avatarInput');
-
-    // Aplicar avatar guardado al cargar la página
-    const savedAvatar = localStorage.getItem('avatarSeleccionado');
-    if (savedAvatar) {
-      trigger.className = 'avatar-trigger bg-' + savedAvatar + '64';
-      input.value = savedAvatar;
+  <style>
+    .my-div {
+      margin-top: 1000px;
     }
+  </style>
+  
+  <div class="my-div">Esto</div>  <link rel="stylesheet" href="avatar.css">
 
-    // Mostrar/ocultar ventana emergente al hacer clic en el avatar
-    trigger.addEventListener('click', () => {
-      popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
-    });
+<!-- Selector de avatar dentro del formulario -->
+<label>Selecciona tu avatar</label>
+            
+<!-- Selector de avatar dentro del formulario -->
+<!-- Campo oculto para enviar al backend -->
+<input type="hidden" id="avatarInput" name="avatar" value="">
 
-    // Manejar selección de avatar
-    choices.forEach(choice => {
-      choice.addEventListener('click', () => {
-        choices.forEach(c => c.classList.remove('selected'));
-        choice.classList.add('selected');
+<div class="avatar-trigger-wrapper">
+    <!-- Botón para seleccionar avatar -->
+    <div class="avatar-trigger" id="avatarTrigger"></div>
+    <!-- Ventana emergente con opciones -->
+    <div class="avatar-popup" id="avatarPopup">
+        <div class="avatar-grid">
+        <div class="avatar-choice bg-amarillo64" data-avatar="amarillo"></div>
+        <div class="avatar-choice bg-azul64" data-avatar="azul"></div>
+        <div class="avatar-choice bg-black64" data-avatar="black"></div>
+        <div class="avatar-choice bg-blanco64" data-avatar="blanco"></div>
+        <div class="avatar-choice bg-blue64" data-avatar="blue"></div>
+        <div class="avatar-choice bg-cafe64" data-avatar="cafe"></div>
+        <div class="avatar-choice bg-green64" data-avatar="green"></div>
+        <div class="avatar-choice bg-morado64" data-avatar="morado"></div>
+        <div class="avatar-choice bg-naranja64" data-avatar="naranja"></div>
+        <div class="avatar-choice bg-negro64" data-avatar="negro"></div>
+        <div class="avatar-choice bg-red64" data-avatar="red"></div>
+        <div class="avatar-choice bg-rojo64" data-avatar="rojo"></div>
+        <div class="avatar-choice bg-rosa64" data-avatar="rosa"></div>
+        <div class="avatar-choice bg-verde64" data-avatar="verde"></div>
+        <div class="avatar-choice bg-yellow64" data-avatar="yellow"></div>
+        </div>
+    </div>
+</div>
+    <script>
+        const trigger = document.getElementById('avatarTrigger');
+        const popup = document.getElementById('avatarPopup');
+        const choices = document.querySelectorAll('.avatar-choice');
+        const input = document.getElementById('avatarInput');
 
-        const avatarId = choice.dataset.avatar;
+        // Aplicar avatar guardado al cargar la página
+        const savedAvatar = localStorage.getItem('avatarSeleccionado');
+        if (savedAvatar) {
+        trigger.className = 'avatar-trigger bg-' + savedAvatar + '64';
+        input.value = savedAvatar;
+        }
 
-        trigger.className = 'avatar-trigger bg-' + avatarId + '64';
-        input.value = avatarId;
-        localStorage.setItem('avatarSeleccionado', avatarId);
+        // Mostrar/ocultar ventana emergente al hacer clic en el avatar
+        trigger.addEventListener('click', () => {
+        popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
+        });
 
-        popup.style.display = 'none';
-        console.log("Avatar guardado:", avatarId);
-      });
-    });
-  </script>
+        // Manejar selección de avatar
+        choices.forEach(choice => {
+        choice.addEventListener('click', () => {
+            choices.forEach(c => c.classList.remove('selected'));
+            choice.classList.add('selected');
+
+            const avatarId = choice.dataset.avatar;
+
+            trigger.className = 'avatar-trigger bg-' + avatarId + '64';
+            input.value = avatarId;
+            localStorage.setItem('avatarSeleccionado', avatarId);
+
+            popup.style.display = 'none';
+            console.log("Avatar guardado:", avatarId);
+        });
+        });
+    </script>
 </body>
 </html>

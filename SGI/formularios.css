@@ -145,19 +145,7 @@ input[type="date"] {
 
 /* ... (resto del CSS) ... */
 
-select {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #007bff;
-    border-radius: 30px;
-    font-weight: bold;
-    transition: border-color 0.3s ease, box-shadow 0.2s ease;
-}
 
-select:focus {
-    border-color: #0056b3;
-    box-shadow: 0 0 5px rgba(0, 86, 179, 0.5);
-}
 
 /* Seleccion de avatar */
 .avatar-trigger-wrapper {

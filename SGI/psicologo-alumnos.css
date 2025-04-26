@@ -205,3 +205,17 @@
         font-size: 1.5em;
     }
 }
+
+/* --- Resaltar fila seleccionada --- */
+.alumnos-table tbody tr {
+    cursor: pointer; /* Para que al pasar el mouse se vea clickeable */
+    transition: background-color 0.3s ease;
+}
+
+.alumnos-table tbody tr:hover {
+    background-color: #f0f0f0; /* Color claro al pasar el mouse */
+}
+
+.alumnos-table tbody tr.selected {
+    background-color: #cfd8dc; /* Color más oscuro cuando esté seleccionada */
+}

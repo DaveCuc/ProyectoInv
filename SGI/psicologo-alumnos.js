@@ -81,3 +81,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Inicializa la tabla con todos los alumnos al cargar
     displayAlumnos(alumnosData);
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const filas = document.querySelectorAll('.alumnos-table tbody tr');
+
+    filas.forEach(fila => {
+        fila.addEventListener('click', function() {
+            // Primero quitamos la selección previa
+            filas.forEach(f => f.classList.remove('selected'));
+            // Luego agregamos la clase a la fila seleccionada
+            this.classList.add('selected');
+        });
+    });
+});

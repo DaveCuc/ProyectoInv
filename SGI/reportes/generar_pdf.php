@@ -1,44 +1,56 @@
 <?php
-require '../dompdf/autoload.inc.php';
-use Dompdf\Dompdf;
+require_once('../tcpdf/tcpdf.php');
+require_once('../conexion.php'); // Ajusta si tu archivo de conexión tiene otro nombre
 
-// Conexión a la base de datos
-$conexion = new mysqli("localhost", "root", "", "mydb");
-if ($conexion->connect_error) {
-    die("Conexión fallida: " . $conexion->connect_error);
+$id = $_GET['id'] ?? '';
+if (!$id) {
+    die('ID de cita no proporcionado.');
 }
 
-// Obtener el ID de la sesión desde la URL
-$id = isset($_GET['id']) ? intval($_GET['id']) : 0;
-if ($id <= 0) {
-    die("ID inválido.");
+// Obtener datos de la cita
+$conn = new mysqli($host, $user, $pass, $db);
+if ($conn->connect_error) {
+    die("Conexión fallida: " . $conn->connect_error);
 }
 
-// Consulta SQL con JOIN para traer todos los datos
-$sql = "
-    SELECT c.*, a.carrera, a.num_control, d.nombre, d.apellidoP, d.apellidoM
+$stmt = $conn->prepare("
+    SELECT 
+        dp.nombre, dp.apellidoP, dp.apellidoM, a.carrera,
+        c.fecha, c.horario, c.primera_vez, c.asistencia, 
+        c.estatus_sesion, c.asunto, c.num_control
     FROM citas c
-    INNER JOIN alumno a ON a.num_control = c.num_control
-    INNER JOIN datos_personales d ON d.id_usuario = a.id_usuario
-    WHERE c.id_citas = $id
-";
-
-$resultado = $conexion->query($sql);
-if ($resultado->num_rows === 0) {
-    die("No se encontró la sesión.");
+    JOIN alumno a ON c.num_control = a.num_control
+    JOIN datos_personales dp ON a.id_usuario = a.id_usuario
+    WHERE c.id_citas = ?
+");
+$stmt->bind_param("i", $id);
+$stmt->execute();
+$result = $stmt->get_result();
+$data = $result->fetch_assoc();
+if (!$data) {
+    die('No se encontró la cita.');
 }
 
-$datos = $resultado->fetch_assoc();
-$conexion->close();
+// Crear PDF
+$pdf = new TCPDF();
+$pdf->AddPage();
+$pdf->SetFont('helvetica', '', 12);
 
-// Cargar la plantilla HTML
-ob_start();
-include 'plantilla_pdf.php';
-$html = ob_get_clean();
+$html = '
+<h2 style="text-align:center;">REPORTE DE SESIÓN PSICOLÓGICA</h2>
+<p><strong>Nombre del Alumno:</strong> ' . $data['nombre'] . ' ' . $data['apellidoP'] . ' ' . $data['apellidoM'] . '</p>
+<p><strong>Número de Control:</strong> ' . $data['num_control'] . '</p>
+<p><strong>Carrera:</strong> ' . $data['carrera'] . '</p>
+<p><strong>Fecha de Sesión:</strong> ' . $data['fecha'] . '</p>
+<p><strong>Asunto Tratado:</strong> ' . $data['asunto'] . '</p>
+<p><strong>Horario:</strong> ' . $data['horario'] . '</p>
+<p><strong>Primera vez:</strong> ' . ($data['primera_vez'] ? 'Sí' : 'No') . '</p>
+<p><strong>Asistencia:</strong> ' . $data['asistencia'] . '</p>
+<p><strong>Estatus de sesión:</strong> ' . $data['estatus_sesion'] . '</p>
+<br><br><br>
+<p style="text-align:right;">_________________________<br>Psicólogo Responsable</p>
+';
 
-// Generar el PDF
-$dompdf = new Dompdf();
-$dompdf->loadHtml($html);
-$dompdf->setPaper('A4', 'portrait');
-$dompdf->render();
-$dompdf->stream("reporte_sesion_$id.pdf", ["Attachment" => false]);
+$pdf->writeHTML($html, true, false, true, false, '');
+$pdf->Output('reporte_sesion.pdf', 'I');
+?>

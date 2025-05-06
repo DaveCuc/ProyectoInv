@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SGI - Cuestionario Inicial</title>
+
+  <link rel="stylesheet" href="cuestionario.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+
+  <script defer src="cuestionario-citas.js"></script>
+</head>
+<body>
+    <main class="cuestionario-main">
+        <h1>CUESTIONARIO</h1>
+
+        <div class="cuestionario-wrapper">
+            <div class="pasos-navegacion">
+                <button class="paso-btn" data-step="0">1</button>
+                <button class="paso-btn" data-step="1">2</button>
+                <button class="paso-btn" data-step="2">3</button>
+                <button class="paso-btn" data-step="3">4</button>
+            </div>
+
+            <!-- Contenedor de alumno y formulario -->
+            <div class="cuestionario-container">
+                <div class="alumno-info-card">
+                    <div class="alumno-avatar">
+                    <i class="fas fa-user"></i>
+                    </div>
+                    <p>Nombre Alumno: <span id="info-nombre-alumno"></span></p>
+                    <p>Núm Control: <span id="info-num-control"></span></p>
+                    <p>Carrera: <span id="info-carrera"></span></p>
+                    <p>Semestre: <span id="info-semestre"></span></p>
+                    <p>Edad: <span id="info-edad"></span></p>
+                    <p>Asistencias: <span id="info-asistencias"></span></p>
+                </div>
+
+                <!-- Primer formulario -->
+                <div class="formulario-card" data-step="0">
+                    <h2>Motivo de Consulta</h2>        
+                        <div class="motivo-consulta-buttons">
+                            <button type="button" class="btn-gris" data-motivo="ansiedad">Ansiedad</button>
+                            <button type="button" class="btn-gris" data-motivo="depresion">Depresión</button>
+                            <button type="button" class="btn-gris" data-motivo="angustia">Angustia</button>
+                            <button type="button" class="btn-gris" data-motivo="autoestima">Autoestima baja</button>
+                            <button type="button" class="btn-gris" data-motivo="indiferencia">Indiferencia</button>
+                            <button type="button" class="btn-gris" data-motivo="confusion">Confusión</button>
+                            <button type="button" class="btn-gris" data-motivo="descontrol">Descontrol</button>
+                            <button type="button" class="btn-gris" data-motivo="desorientacion">Desorientación</button>
+                            <button type="button" class="btn-gris" data-motivo="incoherencia">Incoherencia</button>
+                            <button type="button" class="btn-gris" data-motivo="sobrevaloracion">Sobrevaloración</button>
+                            <button type="button" class="btn-gris" data-motivo="otros">Otros</button>
+                        </div>
+                        <label for="otros-especificar">Especifique:</label>
+                        <textarea id="otros-especificar" name="otros-especificar" rows="3"></textarea>
+                </div>
+
+                <!-- Segundo formulario ANTECEDENTES FAMILIARES -->
+                <div class="formulario-card" data-step="1" hidden>
+                    <h2>ANTECEDENTES FAMILIARES</h2>
+
+                    <!-- PREGUNTAS BINARIAS (sí/no) -->
+                    <!-- Capturadas por clase: .btn-gris y atributo data-option -->
+                    <div class="si-no-options">
+                    <label>Padres Juntos:</label>
+                    <div class="si-no-group">
+                        <button type="button" class="btn-gris" data-option="padres-juntos" data-value="si">Sí</button>
+                        <button type="button" class="btn-gris" data-option="padres-juntos" data-value="no">No</button>
+                    </div>
+
+                    <label>Padre fallecido:</label>
+                    <div class="si-no-group">
+                        <button type="button" class="btn-gris" data-option="padre-fallecido" data-value="si">Sí</button>
+                        <button type="button" class="btn-gris" data-option="padre-fallecido" data-value="no">No</button>
+                    </div>
+
+                    <label>Madre fallecida:</label>
+                    <div class="si-no-group">
+                        <button type="button" class="btn-gris" data-option="madre-fallecida" data-value="si">Sí</button>
+                        <button type="button" class="btn-gris" data-option="madre-fallecida" data-value="no">No</button>
+                    </div>
+
+                    <label>Conflictos con otros familiares:</label>
+                    <div class="si-no-group">
+                        <button type="button" class="btn-gris" data-option="conflictos-otros" data-value="si">Sí</button>
+                        <button type="button" class="btn-gris" data-option="conflictos-otros" data-value="no">No</button>
+                    </div>
+
+                    <label>Conflictos con el padre:</label>
+                    <div class="si-no-group">
+                        <button type="button" class="btn-gris" data-option="conflictos-padre" data-value="si">Sí</button>
+                        <button type="button" class="btn-gris" data-option="conflictos-padre" data-value="no">No</button>
+                    </div>
+
+                    <label>Conflictos con la madre:</label>
+                    <div class="si-no-group">
+                        <button type="button" class="btn-gris" data-option="conflictos-madre" data-value="si">Sí</button>
+                        <button type="button" class="btn-gris" data-option="conflictos-madre" data-value="no">No</button>
+                    </div>
+                    </div>
+
+                    <!-- OPCIÓN ÚNICA: Actitud con padres -->
+                    <!-- Se envía como: actitud_padres: "hostil" -->
+                    <div class="opcion-seleccion">
+                    <label>Actitud con los padres:</label>
+                    <div class="actitud-padres-buttons">
+                        <button type="button" class="btn-gris" data-opcion="actitud-padres" data-value="afectuosa">Afectuosa</button>
+                        <button type="button" class="btn-gris" data-opcion="actitud-padres" data-value="sobreprotectora">Sobreprotectora</button>
+                        <button type="button" class="btn-gris" data-opcion="actitud-padres" data-value="indiferente">Indiferente</button>
+                        <button type="button" class="btn-gris" data-opcion="actitud-padres" data-value="hostil">Hostil</button>
+                        <button type="button" class="btn-gris" data-opcion="actitud-padres" data-value="relacion-inexistente">Relación Inexistente</button>
+                    </div>
+                    </div>
+
+                    <!-- Número de hermanos y lugar entre ellos -->
+                    <div class="numero-hermanos">
+                    <label>Número de Hermanos:</label>
+                    <div class="hermanos-input-group">
+                        <label for="hermanos-varones">Varones:</label>
+                        <input type="number" id="hermanos-varones" name="hermanos-varones" min="0" />
+                    </div>
+                    <div class="hermanos-input-group">
+                        <label for="hermanos-mujeres">Mujeres:</label>
+                        <input type="number" id="hermanos-mujeres" name="hermanos-mujeres" min="0" />
+                    </div>
+                    <label for="lugar-hermanos">Lugar entre hermanos:</label>
+                    <select id="lugar-hermanos" name="lugar-hermanos">
+                        <option value="">Seleccione</option>
+                        <option value="mayor">Mayor</option>
+                        <option value="menor">Menor</option>
+                        <option value="enmedio">En medio</option>
+                    </select>
+                    </div>
+
+                    <!-- Relación con hermanos -->
+                    <div class="opcion-seleccion">
+                    <label>Relación con los hermanos:</label>
+                    <div class="relacion-hermanos-buttons">
+                        <button type="button" class="btn-gris" data-opcion="relacion-hermanos" data-value="afectuosa">Afectuosa</button>
+                        <button type="button" class="btn-gris" data-opcion="relacion-hermanos" data-value="sobreprotectora">Sobreprotectora</button>
+                        <button type="button" class="btn-gris" data-opcion="relacion-hermanos" data-value="indiferente">Indiferente</button>
+                        <button type="button" class="btn-gris" data-opcion="relacion-hermanos" data-value="hostil">Hostil</button>
+                        <button type="button" class="btn-gris" data-opcion="relacion-hermanos" data-value="relacion-inexistente">Relación Inexistente</button>
+                    </div>
+                    </div>
+
+                    <!-- Problemas en el entorno familiar -->
+                    <div class="opcion-seleccion">
+                    <label>Problemas que se detectan en la vida familiar:</label>
+                    <div class="problemas-familiares-buttons">
+                        <button type="button" class="btn-gris" data-opcion="problemas-familiares" data-value="alcoholismo">Alcoholismo</button>
+                        <button type="button" class="btn-gris" data-opcion="problemas-familiares" data-value="drogadiccion">Drogadicción</button>
+                        <button type="button" class="btn-gris" data-opcion="problemas-familiares" data-value="violencia">Violencia</button>
+                        <button type="button" class="btn-gris" data-opcion="problemas-familiares" data-value="abandono">Abandono</button>
+                        <button type="button" class="btn-gris" data-opcion="problemas-familiares" data-value="enfermedad-cronica">Enfermedad Crónica</button>
+                    </div>
+                    </div>
+
+                    <!-- Texto libre -->
+                    <div>
+                    <label for="vive-con">¿Con quién vive actualmente?</label>
+                    <textarea id="vive-con" name="vive-con" rows="3"></textarea>
+                    </div>
+
+
+                    </div>
+                
+
+
+                <!-- Tercer formulario PADECIMIENTO ACTUAL -->
+                <div class="formulario-card" data-step="2" hidden>
+                    <h2>PADECIMIENTO ACTUAL</h2>
+                    <p>( Inicio, curso, tendencia, decadentes, agravantes, síntomas clave, síntomas actuales ) .</p>
+                    <div class="padecimiento-container"> 
+                        <div>
+                            <label for="padecimiento-descripcion" class="padecimiento-textarea-label">Descripción del Padecimiento Actual:</label>
+                            <textarea id="padecimiento-descripcion" class="padecimiento-textarea"></textarea>
+                        </div>
+                    </div>
+
+        
+                </div>
+
+                <!-- Cuarto formulario Final TÉCNICAS E INSTRUMENTACION PSICOLÓGICOS APLICADOS  -->
+                <div class="formulario-card" data-step="3" hidden>
+                    <h2>TÉCNICAS E INSTRUMENTACION PSICOLÓGICOS APLICADOS</h2>
+                    <div class="tecnicas-options">
+                        <button type="button" class="btn-gris" data-tecnica="observacion">Observación</button>
+                        <button type="button" class="btn-gris" data-tecnica="entrevista">Entrevista</button>
+                        <button type="button" class="btn-gris" data-tecnica="pruebas-psicologicas">Pruebas Psicológicas</button>
+                    </div>
+                </div>
+            
+                
+            </div>
+            <div class="botones-navegacion">
+                <button class="btn btn-azul" id="btn-anterior">Atrás</button>
+                <button class="btn btn-azul" id="btn-siguiente">Siguiente</button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

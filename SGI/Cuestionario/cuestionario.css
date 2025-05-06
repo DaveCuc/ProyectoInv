@@ -121,8 +121,9 @@
   
   /* Botón especial de técnicas */
   .tecnicas-options .btn-gris.selected {
-    background-color: #ef007e;
-    color: white;
+    background-color: #c4dafa;
+    border-color: #4d82bc;
+    font-weight: bold;
   }
   
   /* Grupo sí/no y opción única */

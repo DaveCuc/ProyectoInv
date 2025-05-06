@@ -85,4 +85,13 @@ document.addEventListener("DOMContentLoaded", function () {
             this.classList.add('selected');
         });
     });
+    
+        // === SELECCIÓN DE TÉCNICAS APLICADAS (múltiple) ===
+        const tecnicaButtons = document.querySelectorAll(".btn-gris[data-tecnica]");
+        tecnicaButtons.forEach(button => {
+            button.addEventListener("click", function () {
+                this.classList.toggle("selected");
+            });
+        });
+    
 });

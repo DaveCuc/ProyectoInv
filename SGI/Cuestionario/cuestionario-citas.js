@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("btn-anterior").disabled = index === 0;
     }
 
+    mostrarFormulario(formularioActual);
 
     // Botones de navegación principal
     document.getElementById("btn-anterior").addEventListener("click", () => {
